@@ -3,4 +3,5 @@
     <string name="app_name">LifestyleHub</string>
     <string name="main">Главная</string>
     <string name="home">Домик</string>
+    <string name="your_location">Ваше местоположение</string>
 </resources>

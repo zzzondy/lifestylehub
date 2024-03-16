@@ -2,6 +2,8 @@ plugins {
     id(Plugins.androidApplication)
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinSerialization)
+    kotlin(Plugins.kapt)
+    id(Plugins.daggerHilt)
 }
 
 android {
@@ -32,9 +34,16 @@ android {
 
         debug {
             isMinifyEnabled = false
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
+            )
+
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_API_URL",
+                "\"https://api.openweathermap.org/data/2.5/\""
             )
         }
     }
@@ -47,6 +56,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Dependencies.Compose.version
@@ -72,13 +82,24 @@ dependencies {
     implementation(Dependencies.Compose.uiGraphics)
     implementation(Dependencies.Compose.toolingPreview)
     implementation(Dependencies.Compose.navigation)
+    implementation(Dependencies.Compose.constraintLayout)
 
     // Serialization
     implementation(Dependencies.Serialization.kotlinSerializationJson)
 
+    // OkHttp
+    implementation(Dependencies.OkHttp3.okhttp)
+    debugImplementation(Dependencies.OkHttp3.loggingInterceptor)
+
     // Retrofit
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Retrofit.serialization)
+
+    // Hilt
+    implementation(Dependencies.Hilt.hilt)
+    implementation(Dependencies.Hilt.hiltCompose)
+    kapt(Dependencies.Hilt.hiltAndroidCompiler)
+    kapt(Dependencies.Hilt.hiltCompiler)
 
     // Testing
     testImplementation(Dependencies.Testing.junit)

@@ -6,7 +6,9 @@ object Plugins {
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
     const val kotlinVersion = "1.9.22"
 
-    const val kapt = "kotlin-kapt"
+    const val kapt = "kapt"
 
     const val kotlinSerialization = "org.jetbrains.kotlin.plugin.serialization"
+
+    const val daggerHilt = "dagger.hilt.android.plugin"
 }

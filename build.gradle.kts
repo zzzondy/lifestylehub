@@ -1,6 +1,7 @@
 buildscript {
     dependencies {
         classpath(Dependencies.Serialization.kotlinSerialization)
+        classpath(Dependencies.Hilt.daggerHiltProject)
     }
 }
 

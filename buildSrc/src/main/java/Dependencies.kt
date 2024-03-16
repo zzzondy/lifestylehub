@@ -11,6 +11,8 @@ object Dependencies {
         const val material3 = "androidx.compose.material3:material3"
 
         const val navigation = "androidx.navigation:navigation-compose:2.7.7"
+
+        const val constraintLayout = "androidx.constraintlayout:constraintlayout-compose:1.0.1"
     }
 
     object Lifecycle {
@@ -33,9 +35,29 @@ object Dependencies {
         const val kotlinSerializationJson = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0"
     }
 
+    object OkHttp3 {
+        private const val okHttpVersion = "4.9.0"
+
+        const val okhttp = "com.squareup.okhttp3:okhttp:$okHttpVersion"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+    }
+
     object Retrofit {
         const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
         const val serialization =
             "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0"
     }
+
+    object Hilt {
+
+        private const val hiltVersion = "2.48.1"
+
+        const val daggerHiltProject = "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
+
+        const val hilt = "com.google.dagger:hilt-android:$hiltVersion"
+        const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:$hiltVersion"
+        const val hiltCompose = "androidx.hilt:hilt-navigation-compose:1.1.0"
+        const val hiltCompiler = "androidx.hilt:hilt-compiler:1.1.0"
+    }
+
 }
