@@ -3,7 +3,6 @@ plugins {
     id(Plugins.kotlinAndroid)
     id(Plugins.kotlinSerialization)
     kotlin(Plugins.kapt)
-    id(Plugins.daggerHilt)
 }
 
 android {
@@ -70,6 +69,13 @@ android {
 
 dependencies {
 
+    // Modules
+    implementation(project(Modules.commonUi))
+    implementation(project(Modules.commonNavigation))
+    implementation(project(Modules.commonNetwork))
+
+    implementation(project(Modules.featuresMainPresentation))
+
     // Lifecycle
     implementation(Dependencies.Lifecycle.core)
     implementation(Dependencies.Lifecycle.runtime)
@@ -87,19 +93,9 @@ dependencies {
     // Serialization
     implementation(Dependencies.Serialization.kotlinSerializationJson)
 
-    // OkHttp
-    implementation(Dependencies.OkHttp3.okhttp)
-    debugImplementation(Dependencies.OkHttp3.loggingInterceptor)
-
-    // Retrofit
-    implementation(Dependencies.Retrofit.retrofit)
-    implementation(Dependencies.Retrofit.serialization)
-
-    // Hilt
-    implementation(Dependencies.Hilt.hilt)
-    implementation(Dependencies.Hilt.hiltCompose)
-    kapt(Dependencies.Hilt.hiltAndroidCompiler)
-    kapt(Dependencies.Hilt.hiltCompiler)
+    // Dagger
+    implementation(Dependencies.Dagger.dagger)
+    kapt(Dependencies.Dagger.compiler)
 
     // Testing
     testImplementation(Dependencies.Testing.junit)
@@ -109,4 +105,8 @@ dependencies {
     androidTestImplementation(Dependencies.Testing.composeJunit)
     debugImplementation(Dependencies.Testing.composeUiTolling)
     debugImplementation(Dependencies.Testing.composeTestManifest)
+}
+
+kapt {
+    correctErrorTypes = true
 }

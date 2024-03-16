@@ -15,4 +15,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "LifestyleHub"
 include(":app")
- 
+
+include(":common:ui")
+include(":common:navigation")
+include(":common:network")
+
+include(":features:main:presentation")
