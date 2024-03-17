@@ -103,6 +103,11 @@ private val paddings = LifestyleHubPaddings(
     extraLarge = 32.dp
 )
 
+private val sizes = LifestyleHubSizes(
+    weatherIconSize = 32.dp,
+    weatherCardHeight = 196.dp,
+)
+
 
 @Composable
 fun LifestyleHubTheme(
@@ -129,7 +134,8 @@ fun LifestyleHubTheme(
     }
 
     CompositionLocalProvider(
-        LocalLifecycleHubPaddings provides paddings
+        LocalLifecycleHubPaddings provides paddings,
+        LocalLifecycleHubSizes provides sizes
     ) {
         MaterialTheme(
             colorScheme = colorScheme,

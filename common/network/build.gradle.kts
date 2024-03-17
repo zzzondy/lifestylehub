@@ -22,6 +22,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_API_URL",
+                "\"https://api.openweathermap.org/\""
+            )
         }
 
         debug {
@@ -30,12 +35,23 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_API_URL",
+                "\"https://api.openweathermap.org/\""
+            )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -57,4 +73,7 @@ dependencies {
 
     // Serialization
     api(Dependencies.Serialization.kotlinSerializationJson)
+
+    // Google Services
+    api(Dependencies.GoogleServices.location)
 }

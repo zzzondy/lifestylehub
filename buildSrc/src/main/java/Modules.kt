@@ -10,4 +10,6 @@ object Modules {
     // Features
 
     const val featuresMainPresentation = ":features:main:presentation"
+    const val featuresMainDomain = ":features:main:domain"
+    const val featuresMainData = ":features:main:data"
 }

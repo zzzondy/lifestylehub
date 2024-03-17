@@ -22,6 +22,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_IMG_URL",
+                "\"https://openweathermap.org/img/wn/\""
+            )
         }
 
         debug {
@@ -29,6 +34,11 @@ android {
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
+            )
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_IMG_URL",
+                "\"https://openweathermap.org/img/wn/\""
             )
         }
     }
@@ -39,6 +49,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -55,6 +66,10 @@ dependencies {
     // Modules
     implementation(project(Modules.commonUi))
     implementation(project(Modules.commonNavigation))
+    implementation(project(Modules.commonNetwork))
+
+    api(project(Modules.featuresMainDomain))
+    api(project(Modules.featuresMainData))
 
     // Compose
     implementation(platform(Dependencies.Compose.bom))
@@ -67,6 +82,9 @@ dependencies {
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.composeActivity)
+
+    // Coil
+    implementation(Dependencies.Coil.compose)
 
     // Dagger
     implementation(Dependencies.Dagger.dagger)

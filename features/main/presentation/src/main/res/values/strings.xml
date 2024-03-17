@@ -2,4 +2,13 @@
 <resources>
     <string name="main">Main</string>
     <string name="your_location">Your location</string>
+    <string name="celsius" translatable="false">%1$d C°</string>
+    <string name="temperature_range">From %1$dC° to %2$dC°</string>
+    <string name="temperature_today">Temp today</string>
+    <string name="feelsLike">Feels like %1$dC°</string>
+    <string name="your_location_unavailable">Your location unavailable</string>
+    <string name="confirm">Confirm</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="location_permission_explanation">To continue please grant access to locations</string>
+    <string name="location_permission_explanation_last">This feature is not available without location permissions. Open app settings?</string>
 </resources>

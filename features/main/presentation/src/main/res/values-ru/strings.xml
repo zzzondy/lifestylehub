@@ -2,4 +2,12 @@
 <resources>
     <string name="main">Главная</string>
     <string name="your_location">Ваше местоположение</string>
+    <string name="temperature_range">От %1$dC° до %2$dC°</string>
+    <string name="temperature_today">Температура сегодня</string>
+    <string name="feelsLike">Ощущается как %1$dC°</string>
+    <string name="your_location_unavailable">Ваша геопозиция недоступна</string>
+    <string name="confirm">Принять</string>
+    <string name="dismiss">Отмена</string>
+    <string name="location_permission_explanation">Для продолжения, пожалуйста, разрешите доступ к геолокации</string>
+    <string name="location_permission_explanation_last">Эта функция недоступна без доступа к геолокации. Открыть настройки?</string>
 </resources>

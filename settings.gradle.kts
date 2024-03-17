@@ -20,4 +20,7 @@ include(":common:ui")
 include(":common:navigation")
 include(":common:network")
 
+
 include(":features:main:presentation")
+include(":features:main:domain")
+include(":features:main:data")

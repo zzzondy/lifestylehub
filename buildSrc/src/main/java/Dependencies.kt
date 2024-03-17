@@ -55,4 +55,16 @@ object Dependencies {
         const val compiler = "com.google.dagger:dagger-compiler:$daggerVersion"
     }
 
+    object GoogleServices {
+        const val location = "com.google.android.gms:play-services-location:21.2.0"
+    }
+
+    object Coroutines {
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0"
+    }
+
+    object Coil {
+        const val compose = "io.coil-kt:coil-compose:2.6.0"
+    }
+
 }

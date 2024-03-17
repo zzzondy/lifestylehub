@@ -14,12 +14,24 @@ data class LifestyleHubPaddings(
     val extraLarge: Dp
 )
 
+data class LifestyleHubSizes(
+    val weatherIconSize: Dp,
+    val weatherCardHeight: Dp,
+)
+
 object LifestyleHubTheme {
 
     val paddings: LifestyleHubPaddings
         @Composable
         get() = LocalLifecycleHubPaddings.current
+
+    val sizes: LifestyleHubSizes
+        @Composable
+        get() = LocalLifecycleHubSizes.current
 }
 
 val LocalLifecycleHubPaddings =
     staticCompositionLocalOf<LifestyleHubPaddings> { error("No paddings provided") }
+
+val LocalLifecycleHubSizes =
+    staticCompositionLocalOf<LifestyleHubSizes> { error("No sizes provided") }
