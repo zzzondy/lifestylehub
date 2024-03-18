@@ -1,44 +1,48 @@
 package com.feature_main.presentation.screens.main.components
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.AsyncImage
+import com.common.ui.extensions.shimmerEffect
 import com.common.ui.theme.LifestyleHubTheme
-import com.common.ui.utils.UIText
-import com.feature_main.presentation.BuildConfig
-import com.feature_main.presentation.R
 
 @Composable
-fun WeatherWidget(
-    temperature: Int,
-    minTemperature: Int,
-    maxTemperature: Int,
-    feelingTemperature: Int,
-    weatherCondition: String,
-    city: String,
+fun MainScreenLoadingState(
     modifier: Modifier = Modifier,
-    icon: String,
+) {
+    LazyColumn(
+        modifier = modifier,
+        userScrollEnabled = false,
+    ) {
+        item {
+            LoadingWeatherWidget(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(LifestyleHubTheme.sizes.weatherCardHeight)
+                    .padding(LifestyleHubTheme.paddings.medium)
+            )
+        }
+    }
+}
+
+@Composable
+private fun LoadingWeatherWidget(
+    modifier: Modifier = Modifier
 ) {
     val paddings = LifestyleHubTheme.paddings
 
@@ -48,14 +52,16 @@ fun WeatherWidget(
         ConstraintLayout(
             modifier = Modifier.fillMaxSize(),
             constraintSet = ConstraintSet {
-                val yourLocationText = createRefFor(WeatherWidgetLayoutIDs.title)
-                val temperatureText = createRefFor(WeatherWidgetLayoutIDs.temperature)
-                val cityText = createRefFor(WeatherWidgetLayoutIDs.city)
-                val temperatureRange = createRefFor(WeatherWidgetLayoutIDs.temperatureRange)
-                val temperatureToday = createRefFor(WeatherWidgetLayoutIDs.temperatureToday)
-                val weatherConditionText = createRefFor(WeatherWidgetLayoutIDs.weatherCondition)
-                val feelsLikeTemperature = createRefFor(WeatherWidgetLayoutIDs.feelingTemperature)
-                val iconImage = createRefFor(WeatherWidgetLayoutIDs.icon)
+                val yourLocationText = createRefFor(LoadingWeatherWidgetLayoutIDs.title)
+                val temperatureText = createRefFor(LoadingWeatherWidgetLayoutIDs.temperature)
+                val cityText = createRefFor(LoadingWeatherWidgetLayoutIDs.city)
+                val temperatureRange = createRefFor(LoadingWeatherWidgetLayoutIDs.temperatureRange)
+                val temperatureToday = createRefFor(LoadingWeatherWidgetLayoutIDs.temperatureToday)
+                val weatherConditionText =
+                    createRefFor(LoadingWeatherWidgetLayoutIDs.weatherCondition)
+                val feelsLikeTemperature =
+                    createRefFor(LoadingWeatherWidgetLayoutIDs.feelingTemperature)
+                val iconImage = createRefFor(LoadingWeatherWidgetLayoutIDs.icon)
 
                 constrain(temperatureText) {
                     top.linkTo(parent.top, paddings.extraSmall)
@@ -105,88 +111,80 @@ fun WeatherWidget(
             }
         ) {
             Text(
-                text = stringResource(R.string.celsius, temperature),
+                text = "",
                 style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.temperature)
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.temperature)
+                    .fillMaxWidth(0.2f)
+                    .shimmerEffect(true, MaterialTheme.shapes.large)
             )
 
             Text(
-                text = stringResource(R.string.your_location),
+                text = "",
                 style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.title)
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.title)
+                    .shimmerEffect(true, MaterialTheme.shapes.medium)
             )
 
             Text(
-                text = city,
+                text = "",
                 style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.city),
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.city)
+                    .shimmerEffect(true, MaterialTheme.shapes.medium),
                 maxLines = 1,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
             )
 
             Text(
-                text = stringResource(R.string.temperature_today),
+                text = "",
                 style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.temperatureToday)
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.temperatureToday)
+                    .fillMaxWidth(0.4f)
+                    .shimmerEffect(true, MaterialTheme.shapes.medium),
             )
 
             Text(
-                text = stringResource(R.string.temperature_range, minTemperature, maxTemperature),
+                text = "",
                 style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.temperatureRange)
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.temperatureRange)
+                    .fillMaxWidth(0.3f)
+                    .shimmerEffect(true, MaterialTheme.shapes.medium),
             )
 
             Text(
-                text = weatherCondition,
+                text = "",
                 style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.weatherCondition)
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.weatherCondition)
+                    .shimmerEffect(true, MaterialTheme.shapes.medium),
             )
 
             Text(
-                text = stringResource(R.string.feelsLike, feelingTemperature),
+                text = "",
                 style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.feelingTemperature)
+                modifier = Modifier
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.feelingTemperature)
+                    .fillMaxWidth(0.3f)
+                    .shimmerEffect(true, MaterialTheme.shapes.medium),
             )
 
             AsyncImage(
-                model = "${BuildConfig.OPEN_WEATHER_IMG_URL}${icon}@2x.png",
+                model = "",
                 contentDescription = null,
                 modifier = Modifier
-                    .layoutId(WeatherWidgetLayoutIDs.icon)
+                    .layoutId(LoadingWeatherWidgetLayoutIDs.icon)
                     .size(LifestyleHubTheme.sizes.weatherIconSize)
+                    .shimmerEffect(true, MaterialTheme.shapes.extraLarge),
             )
         }
     }
 }
 
-@Composable
-fun ErrorWeatherWidget(
-    title: String,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit = {}
-) {
-    ElevatedCard(
-        onClick = onClick,
-        modifier = modifier
-    ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.padding(
-                    LifestyleHubTheme.paddings.medium
-                ),
-                textAlign = TextAlign.Center,
-            )
-        }
-    }
-}
-
-private object WeatherWidgetLayoutIDs {
+private object LoadingWeatherWidgetLayoutIDs {
 
     const val title = "title"
     const val city = "city"
@@ -200,20 +198,13 @@ private object WeatherWidgetLayoutIDs {
 
 @Preview
 @Composable
-private fun WeatherWidgetPreview() {
+private fun LoadingWeatherWidgetPreview() {
     LifestyleHubTheme {
-        WeatherWidget(
-            temperature = 100,
-            minTemperature = 1,
-            maxTemperature = 11,
-            feelingTemperature = 10,
-            weatherCondition = "",
-            city = "Хлевное",
-            icon = "",
+        LoadingWeatherWidget(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
-                .padding(16.dp)
+                .height(LifestyleHubTheme.sizes.weatherCardHeight)
+                .padding(LifestyleHubTheme.paddings.medium)
         )
     }
 }

@@ -22,6 +22,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_API_KEY",
+                "\"9626822fe842569ada7ecfb5c222cb17\""
+            )
         }
 
         debug {
@@ -30,12 +36,23 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField(
+                "String",
+                "OPEN_WEATHER_API_KEY",
+                "\"9626822fe842569ada7ecfb5c222cb17\""
+            )
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -53,6 +70,9 @@ dependencies {
     // Retrofit
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Retrofit.serialization)
+
+    // Local storage
+    implementation(Dependencies.LocalStorage.dataStore)
 
     // Serialization
     implementation(Dependencies.Serialization.kotlinSerializationJson)

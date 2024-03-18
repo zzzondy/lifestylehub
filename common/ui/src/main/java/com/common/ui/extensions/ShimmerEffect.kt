@@ -15,11 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 
-fun Modifier.shimmerEffect(visible: Boolean): Modifier = composed {
+fun Modifier.shimmerEffect(visible: Boolean, shape: Shape): Modifier = composed {
     if (visible) {
         var size by remember {
             mutableStateOf(IntSize.Zero)
@@ -37,13 +38,14 @@ fun Modifier.shimmerEffect(visible: Boolean): Modifier = composed {
         background(
             brush = Brush.linearGradient(
                 colors = listOf(
-                    MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
                     MaterialTheme.colorScheme.surfaceColorAtElevation(4.dp),
-                    MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp),
+                    MaterialTheme.colorScheme.surfaceColorAtElevation(6.dp),
+                    MaterialTheme.colorScheme.surfaceColorAtElevation(4.dp),
                 ),
                 start = Offset(startOffsetX, 0f),
                 end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat())
-            )
+            ),
+            shape = shape,
         )
             .onGloballyPositioned {
                 size = it.size

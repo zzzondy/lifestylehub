@@ -67,4 +67,8 @@ object Dependencies {
         const val compose = "io.coil-kt:coil-compose:2.6.0"
     }
 
+    object LocalStorage {
+        const val dataStore = "androidx.datastore:datastore-preferences:1.0.0"
+    }
+
 }

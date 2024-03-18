@@ -1,8 +1,9 @@
 package com.feature_main.presentation.screens.main.di
 
-import com.common.network.location.GetCurrentUserLocationUseCase
 import com.feature_main.presentation.screens.main.MainScreenViewModel
+import com.main.domain.use_cases.GetLocationPermissionFlagUseCase
 import com.main.domain.use_cases.ObtainUserWeatherUseCase
+import com.main.domain.use_cases.UpdateLocationPermissionFlagUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -13,6 +14,14 @@ class ScreenModule {
 
     @MainScreenScope
     @Provides
-    fun provideMainScreenViewModel(obtainUserWeatherUseCase: ObtainUserWeatherUseCase): MainScreenViewModel =
-        MainScreenViewModel(obtainUserWeatherUseCase)
+    fun provideMainScreenViewModel(
+        obtainUserWeatherUseCase: ObtainUserWeatherUseCase,
+        updateLocationPermissionFlagUseCase: UpdateLocationPermissionFlagUseCase,
+        getLocationPermissionFlagUseCase: GetLocationPermissionFlagUseCase
+    ): MainScreenViewModel =
+        MainScreenViewModel(
+            obtainUserWeatherUseCase,
+            updateLocationPermissionFlagUseCase,
+            getLocationPermissionFlagUseCase
+        )
 }

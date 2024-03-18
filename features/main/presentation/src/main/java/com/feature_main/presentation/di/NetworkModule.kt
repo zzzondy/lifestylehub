@@ -1,6 +1,7 @@
 package com.feature_main.presentation.di
 
 import com.common.network.BuildConfig
+import com.feature_main.presentation.di.qualifiers.WeatherRetrofit
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.main.data.remote.network.MainFeatureNetworkService
 import dagger.Module
@@ -17,6 +18,7 @@ class NetworkModule {
         ignoreUnknownKeys = true
     }
 
+    @WeatherRetrofit
     @MainComponentScope
     @Provides
     fun provideRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
@@ -27,6 +29,6 @@ class NetworkModule {
 
     @MainComponentScope
     @Provides
-    fun provideRecipeAddingService(retrofit: Retrofit): MainFeatureNetworkService =
+    fun provideRecipeAddingService(@WeatherRetrofit retrofit: Retrofit): MainFeatureNetworkService =
         retrofit.create(MainFeatureNetworkService::class.java)
 }

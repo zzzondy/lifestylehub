@@ -97,6 +97,9 @@ dependencies {
     implementation(Dependencies.Dagger.dagger)
     kapt(Dependencies.Dagger.compiler)
 
+    // Local storage
+    implementation(Dependencies.LocalStorage.dataStore)
+
     // Testing
     testImplementation(Dependencies.Testing.junit)
     androidTestImplementation(Dependencies.Testing.androidJunit)

@@ -8,6 +8,6 @@ import dagger.Module
 
 @Module(
     subcomponents = [NavigationComponent::class, MainFeatureComponent::class],
-    includes = [NetworkModule::class, LocationModule::class]
+    includes = [NetworkModule::class, LocationModule::class, LocalStorageModule::class]
 )
 class AppModule
