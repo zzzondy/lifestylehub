@@ -1,7 +1,9 @@
 package com.feature_main.presentation.screens.main.di
 
 import com.main.domain.repository.MainFeatureRepository
+import com.main.domain.use_cases.ObtainUserLocationUseCase
 import com.main.domain.use_cases.GetLocationPermissionFlagUseCase
+import com.main.domain.use_cases.GetPagedNearbyPlacesUseCase
 import com.main.domain.use_cases.ObtainUserWeatherUseCase
 import com.main.domain.use_cases.UpdateLocationPermissionFlagUseCase
 import dagger.Module
@@ -24,4 +26,14 @@ class UseCasesModule {
     @Provides
     fun provideGetLocationPermissionFlagUseCase(mainFeatureRepository: MainFeatureRepository): GetLocationPermissionFlagUseCase =
         GetLocationPermissionFlagUseCase(mainFeatureRepository)
+
+    @MainScreenScope
+    @Provides
+    fun provideGetUserLocationUseCase(mainFeatureRepository: MainFeatureRepository): ObtainUserLocationUseCase =
+        ObtainUserLocationUseCase(mainFeatureRepository)
+
+    @MainScreenScope
+    @Provides
+    fun provideGetPagedNearbyPlacesUseCase(mainFeatureRepository: MainFeatureRepository): GetPagedNearbyPlacesUseCase =
+        GetPagedNearbyPlacesUseCase(mainFeatureRepository)
 }

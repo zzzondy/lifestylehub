@@ -104,8 +104,10 @@ private val paddings = LifestyleHubPaddings(
 )
 
 private val sizes = LifestyleHubSizes(
-    weatherIconSize = 32.dp,
+    weatherIconSize = 64.dp,
     weatherCardHeight = 196.dp,
+    placeImageSize = 150.dp,
+    placeCardHeight = 210.dp,
 )
 
 

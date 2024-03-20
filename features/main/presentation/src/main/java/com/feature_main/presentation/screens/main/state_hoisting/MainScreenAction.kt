@@ -5,4 +5,8 @@ sealed class MainScreenAction {
     data object OnLocationPermissionGranted : MainScreenAction()
 
     data class UpdateLocationPermissionFlag(val isRationaleShow: Boolean) : MainScreenAction()
+
+    data object LoadNextPageOfNearbyPlaces : MainScreenAction()
+
+    data object OnRefreshAllData : MainScreenAction()
 }

@@ -1,4 +1,4 @@
-package com.main.data.remote.models
+package com.main.data.remote.models.weather
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

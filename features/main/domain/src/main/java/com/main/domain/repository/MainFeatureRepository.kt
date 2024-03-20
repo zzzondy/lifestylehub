@@ -1,13 +1,23 @@
 package com.main.domain.repository
 
+import com.main.domain.models.UserLocation
+import com.main.domain.models.results.ObtainingNearbyPlacesResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
-import kotlinx.coroutines.flow.Flow
 
 interface MainFeatureRepository {
 
-    fun getUserWeather(): Flow<ObtainingUserWeatherResult>
+    suspend fun getUserWeather(latitude: Double, longitude: Double): ObtainingUserWeatherResult
 
     suspend fun putLocationPermissionFlag(isRationaleShow: Boolean)
 
     suspend fun getLocationPermissionFlag(): Boolean
+
+    suspend fun getNearbyPlaces(
+        latitude: Double,
+        longitude: Double,
+        limit: Int,
+        offset: Int,
+    ): ObtainingNearbyPlacesResult
+
+    fun obtainUserLocation(): UserLocation?
 }

@@ -28,6 +28,18 @@ android {
                 "OPEN_WEATHER_API_KEY",
                 "\"9626822fe842569ada7ecfb5c222cb17\""
             )
+
+            buildConfigField(
+                "String",
+                "FOUR_SQUARE_API_KEY",
+                "\"IFXBK2WNI5GH2XEKI0DSIW0HKZKJTZLQSOOFGYXG1OJTA03W\""
+            )
+
+            buildConfigField(
+                "String",
+                "FOUR_SQUARE_VERSION",
+                "\"20231010\""
+            )
         }
 
         debug {
@@ -40,6 +52,17 @@ android {
                 "String",
                 "OPEN_WEATHER_API_KEY",
                 "\"9626822fe842569ada7ecfb5c222cb17\""
+            )
+            buildConfigField(
+                "String",
+                "FOUR_SQUARE_API_KEY",
+                "\"IFXBK2WNI5GH2XEKI0DSIW0HKZKJTZLQSOOFGYXG1OJTA03W\""
+            )
+
+            buildConfigField(
+                "String",
+                "FOUR_SQUARE_VERSION",
+                "\"20231010\""
             )
         }
     }

@@ -1,9 +1,22 @@
 package com.main.data.remote.repository
 
+import com.common.network.location.MapLocation
+import com.main.data.remote.models.results.RemoteObtainingNearbyPlacesResult
 import com.main.data.remote.models.results.RemoteObtainingUserWeatherResult
-import kotlinx.coroutines.flow.Flow
 
 interface RemoteMainFeatureRepository {
 
-    fun getUserWeather(): Flow<RemoteObtainingUserWeatherResult>
+    suspend fun getUserWeather(
+        latitude: Double,
+        longitude: Double
+    ): RemoteObtainingUserWeatherResult
+
+    suspend fun getPagedNearbyPlaces(
+        latitude: Double,
+        longitude: Double,
+        limit: Int,
+        offset: Int,
+    ): RemoteObtainingNearbyPlacesResult
+
+    fun obtainUserLocation(): MapLocation?
 }

@@ -1,4 +1,4 @@
-package com.main.domain.models
+package com.main.domain.models.weather
 
 data class WeatherOnUserLocation(
     val temperature: Double,

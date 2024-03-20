@@ -11,4 +11,14 @@
     <string name="location_permission_explanation">Для продолжения, пожалуйста, разрешите доступ к геолокации</string>
     <string name="location_permission_explanation_last">Эта функция недоступна без доступа к геолокации. Открыть настройки?</string>
     <string name="network_error">Проверьте соединение с интернетом и попробуйте позже</string>
+    <string name="weather_icon">Погода</string>
+    <string name="place_image">Фотография места</string>
+    <string name="no_address">Адрес не указан</string>
+    <string name="categories">Категории</string>
+    <string name="try_again">Попробовать еще раз</string>
+    <string name="no_places_on_your_location">По вашей геолокации не найдено мест</string>
+    <string name="error_occured">Произошла какая-то ошибка</string>
+    <string name="you_have_reached_maximum">Вы долистали до конца</string>
+    <string name="arrow_up">Стрелка вверх</string>
+    <string name="recommended_places">Хорошие места неподалеку</string>
 </resources>

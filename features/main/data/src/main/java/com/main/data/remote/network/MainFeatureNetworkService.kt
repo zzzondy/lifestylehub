@@ -1,6 +1,6 @@
 package com.main.data.remote.network
 
-import com.main.data.remote.models.RemoteWeatherOnUserLocation
+import com.main.data.remote.models.weather.RemoteWeatherOnUserLocation
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

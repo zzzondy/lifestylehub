@@ -4,5 +4,6 @@ import com.main.domain.repository.MainFeatureRepository
 
 class ObtainUserWeatherUseCase(private val mainFeatureRepository: MainFeatureRepository) {
 
-    operator fun invoke() = mainFeatureRepository.getUserWeather()
+    suspend operator fun invoke(latitude: Double, longitude: Double) =
+        mainFeatureRepository.getUserWeather(latitude, longitude)
 }

@@ -6,8 +6,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.feature_main.presentation.screens.main.components.MainScreenContentState
-import com.feature_main.presentation.screens.main.components.MainScreenLoadingState
+import com.feature_main.presentation.screens.main.components.content.MainScreenContentState
+import com.feature_main.presentation.screens.main.components.location_unavailable.MainScreenLocationUnavailableState
 import com.feature_main.presentation.screens.main.state_hoisting.MainScreenAction
 import com.feature_main.presentation.screens.main.state_hoisting.MainScreenState
 
@@ -20,7 +20,7 @@ fun MainScreen(
 
     MainScreenContent(
         state = state,
-        onAction = viewModel::onAction
+        onAction = viewModel::onAction,
     )
 }
 
@@ -32,16 +32,17 @@ private fun MainScreenContent(
     when (state) {
         is MainScreenState.Content -> {
             MainScreenContentState(
-                userWeather = state.userWeather,
-                isRationaleShowLocationPermissionDialog = state.isRationaleShowLocationPermissionDialog,
-                errorText = state.errorText,
+                weatherSectionState = state.weatherSectionState,
+                nearbySectionState = state.nearbySectionState,
                 onAction = onAction,
                 modifier = Modifier.fillMaxSize()
             )
         }
 
-        is MainScreenState.Loading -> {
-            MainScreenLoadingState(
+        is MainScreenState.LocationUnavailable -> {
+            MainScreenLocationUnavailableState(
+                isRationaleShowLocationPermissionDialog = state.isRationaleShowLocationPermissionDialog,
+                onAction = onAction,
                 modifier = Modifier.fillMaxSize()
             )
         }

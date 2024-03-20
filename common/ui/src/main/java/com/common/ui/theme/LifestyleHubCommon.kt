@@ -17,6 +17,8 @@ data class LifestyleHubPaddings(
 data class LifestyleHubSizes(
     val weatherIconSize: Dp,
     val weatherCardHeight: Dp,
+    val placeImageSize: Dp,
+    val placeCardHeight: Dp,
 )
 
 object LifestyleHubTheme {

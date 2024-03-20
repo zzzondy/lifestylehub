@@ -27,6 +27,11 @@ android {
                 "OPEN_WEATHER_API_URL",
                 "\"https://api.openweathermap.org/\""
             )
+            buildConfigField(
+                "String",
+                "FOUR_SQUARE_API_URL",
+                "\"https://api.foursquare.com/v2/search/\""
+            )
         }
 
         debug {
@@ -39,6 +44,11 @@ android {
                 "String",
                 "OPEN_WEATHER_API_URL",
                 "\"https://api.openweathermap.org/\""
+            )
+            buildConfigField(
+                "String",
+                "FOUR_SQUARE_API_URL",
+                "\"https://api.foursquare.com/v2/search/\""
             )
         }
     }

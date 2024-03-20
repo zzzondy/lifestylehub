@@ -1,18 +1,28 @@
 package com.main.data.utils.mappers
 
-import com.main.data.remote.models.RemoteWeatherOnUserLocation
+import com.common.network.location.MapLocation
+import com.main.data.remote.models.places.PlaceResponse
+import com.main.data.remote.models.places.RemoteCategory
+import com.main.data.remote.models.results.RemoteObtainingNearbyPlacesResult
 import com.main.data.remote.models.results.RemoteObtainingUserWeatherResult
-import com.main.domain.models.WeatherOnUserLocation
+import com.main.data.remote.models.weather.RemoteWeatherOnUserLocation
+import com.main.domain.models.UserLocation
+import com.main.domain.models.places.Category
+import com.main.domain.models.places.PagingItem
+import com.main.domain.models.results.ObtainingNearbyPlacesResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
+import com.main.domain.models.weather.WeatherOnUserLocation
 
 fun RemoteObtainingUserWeatherResult.toDomain() = when (this) {
     is RemoteObtainingUserWeatherResult.Success -> ObtainingUserWeatherResult.Success(this.remoteWeatherOnUserLocation.toDomain())
 
-    is RemoteObtainingUserWeatherResult.Error -> ObtainingUserWeatherResult.Error
-
-    is RemoteObtainingUserWeatherResult.LocationError -> ObtainingUserWeatherResult.LocationError
-
     is RemoteObtainingUserWeatherResult.NetworkError -> ObtainingUserWeatherResult.NetworkError
+}
+
+fun RemoteObtainingNearbyPlacesResult.toDomain() = when (this) {
+    is RemoteObtainingNearbyPlacesResult.Success -> ObtainingNearbyPlacesResult.Success(this.remotePlaces.map { it.toDomain() })
+
+    is RemoteObtainingNearbyPlacesResult.Error -> ObtainingNearbyPlacesResult.Error
 }
 
 private fun RemoteWeatherOnUserLocation.toDomain() =
@@ -25,3 +35,19 @@ private fun RemoteWeatherOnUserLocation.toDomain() =
         weatherCondition = this.iconDetails[0].description,
         currentCity = this.currentCity
     )
+
+fun MapLocation.toDomain(): UserLocation = UserLocation(latitude, longitude)
+
+fun PlaceResponse.toDomain(): PagingItem.Place =
+    PagingItem.Place(
+        name = this.venue.name,
+        address = this.venue.location.address,
+        photo = this.photo.prefix + "original" + this.photo.suffix,
+        categories = this.venue.categories.map { it.toDomain() }
+    )
+
+private fun RemoteCategory.toDomain(): Category = Category(
+    id = this.id,
+    name = this.name,
+    icon = iconDetails.prefix + "120" + iconDetails.suffix,
+)

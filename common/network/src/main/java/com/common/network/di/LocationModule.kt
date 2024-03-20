@@ -1,7 +1,7 @@
 package com.common.network.di
 
 import android.content.Context
-import com.common.network.location.GetCurrentUserLocationUseCase
+import com.common.network.location.LocationManager
 import com.google.android.gms.location.LocationServices
 import dagger.Module
 import dagger.Provides
@@ -12,8 +12,8 @@ class LocationModule {
 
     @Singleton
     @Provides
-    fun provideGetCurrentUserLocationUseCase(context: Context): GetCurrentUserLocationUseCase =
-        GetCurrentUserLocationUseCase(
+    fun provideGetCurrentUserLocationUseCase(context: Context): LocationManager =
+        LocationManager(
             LocationServices.getFusedLocationProviderClient(context),
             context
         )

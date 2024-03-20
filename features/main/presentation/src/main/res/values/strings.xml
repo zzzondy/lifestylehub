@@ -12,4 +12,14 @@
     <string name="location_permission_explanation">To continue please grant access to locations</string>
     <string name="location_permission_explanation_last">This feature is not available without location permissions. Open app settings?</string>
     <string name="network_error">Check your internet connection and try again later</string>
+    <string name="weather_icon">Weather icon</string>
+    <string name="place_image">Place photo</string>
+    <string name="no_address">No address</string>
+    <string name="categories">Categories</string>
+    <string name="try_again">Try again</string>
+    <string name="no_places_on_your_location">No places on your location</string>
+    <string name="error_occured">Some error occurred</string>
+    <string name="you_have_reached_maximum">You have reached bottom of list</string>
+    <string name="arrow_up">Arrow up</string>
+    <string name="recommended_places">Recommended places nearby</string>
 </resources>
