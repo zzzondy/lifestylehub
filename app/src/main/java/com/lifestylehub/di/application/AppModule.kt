@@ -3,6 +3,7 @@ package com.lifestylehub.di.application
 import com.common.network.di.LocationModule
 import com.common.network.di.NetworkModule
 import com.feature_main.presentation.di.MainFeatureComponent
+import com.lifestylehub.di.local_storage.LocalStorageModule
 import com.lifestylehub.di.navigation.NavigationComponent
 import dagger.Module
 

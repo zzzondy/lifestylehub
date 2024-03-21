@@ -9,4 +9,6 @@ sealed class MainScreenAction {
     data object LoadNextPageOfNearbyPlaces : MainScreenAction()
 
     data object OnRefreshAllData : MainScreenAction()
+
+    data class OnPlaceClicked(val id: String) : MainScreenAction()
 }

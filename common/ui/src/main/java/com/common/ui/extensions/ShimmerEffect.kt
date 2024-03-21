@@ -15,12 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 
-fun Modifier.shimmerEffect(visible: Boolean, shape: Shape): Modifier = composed {
+fun Modifier.shimmerEffect(visible: Boolean, shape: Shape = RectangleShape): Modifier = composed {
     if (visible) {
         var size by remember {
             mutableStateOf(IntSize.Zero)

@@ -1,4 +1,7 @@
-package com.lifestylehub.features.main.screens.main.presentation.state_hoisting
+package com.feature_main.presentation.screens.main.state_hoisting
 
 sealed class MainScreenEffect {
+
+    data class NavigateToPlaceDetailsScreen(val id: String) :
+        MainScreenEffect()
 }

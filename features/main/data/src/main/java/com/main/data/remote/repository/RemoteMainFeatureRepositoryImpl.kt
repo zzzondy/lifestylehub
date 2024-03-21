@@ -4,6 +4,8 @@ import com.common.network.location.LocationManager
 import com.common.network.location.MapLocation
 import com.main.data.BuildConfig
 import com.main.data.remote.models.results.RemoteObtainingNearbyPlacesResult
+import com.main.data.remote.models.results.RemoteObtainingPlaceDetailsResult
+import com.main.data.remote.models.results.RemoteObtainingPlacePhotosResult
 import com.main.data.remote.models.results.RemoteObtainingUserWeatherResult
 import com.main.data.remote.network.MainFeatureNetworkService
 import com.main.data.remote.network.NearbyPlacesNetworkService
@@ -62,6 +64,38 @@ class RemoteMainFeatureRepositoryImpl(
             }
         } catch (e: Exception) {
             RemoteObtainingNearbyPlacesResult.Error
+        }
+    }
+
+    override suspend fun getPlaceDetails(id: String): RemoteObtainingPlaceDetailsResult {
+        return try {
+            val result = nearbyPlacesNetworkService.getPlaceDetails(id)
+
+            if (result.isSuccessful && result.body() != null) {
+                RemoteObtainingPlaceDetailsResult.Success(
+                    placeDetails = result.body()!!.response.venue
+                )
+            } else {
+                RemoteObtainingPlaceDetailsResult.Error
+            }
+        } catch (e: Exception) {
+            RemoteObtainingPlaceDetailsResult.Error
+        }
+    }
+
+    override suspend fun getPlacePhotos(id: String): RemoteObtainingPlacePhotosResult {
+        return try {
+            val result = nearbyPlacesNetworkService.getPlacePhotos(id)
+
+            if (result.isSuccessful && result.body() != null) {
+                RemoteObtainingPlacePhotosResult.Success(
+                    photos = result.body()!!.response.photos.items
+                )
+            } else {
+                RemoteObtainingPlacePhotosResult.Error
+            }
+        } catch (e: Exception) {
+            RemoteObtainingPlacePhotosResult.Error
         }
     }
 }

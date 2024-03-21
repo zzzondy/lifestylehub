@@ -30,7 +30,7 @@ android {
             buildConfigField(
                 "String",
                 "FOUR_SQUARE_API_URL",
-                "\"https://api.foursquare.com/v2/search/\""
+                "\"https://api.foursquare.com/v2/\""
             )
         }
 
@@ -48,7 +48,7 @@ android {
             buildConfigField(
                 "String",
                 "FOUR_SQUARE_API_URL",
-                "\"https://api.foursquare.com/v2/search/\""
+                "\"https://api.foursquare.com/v2/\""
             )
         }
     }

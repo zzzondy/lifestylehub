@@ -80,8 +80,6 @@ dependencies {
     implementation(Dependencies.Compose.toolingPreview)
     implementation(Dependencies.Compose.navigation)
 
-    // Local storage
-    implementation(Dependencies.LocalStorage.dataStore)
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.composeActivity)

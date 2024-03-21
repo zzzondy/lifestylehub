@@ -3,6 +3,7 @@ package com.lifestylehub
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -45,12 +46,15 @@ fun AppContent(
                     items = bottomBarItems
                 )
             }
-        }
+        },
+        modifier = Modifier.fillMaxSize()
     ) { paddingValues ->
         AppNavGraph(
             navController = navController,
             featureNavigationApis = featureNavigationApis,
-            modifier = Modifier.padding(paddingValues)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
         )
     }
 }

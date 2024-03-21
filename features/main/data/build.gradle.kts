@@ -2,6 +2,7 @@ plugins {
     id(Plugins.kotlinAndroid)
     id(Plugins.androidLibrary)
     id(Plugins.kotlinSerialization)
+    kotlin(Plugins.kapt)
 }
 
 android {
@@ -94,9 +95,11 @@ dependencies {
     implementation(Dependencies.Retrofit.retrofit)
     implementation(Dependencies.Retrofit.serialization)
 
-    // Local storage
-    implementation(Dependencies.LocalStorage.dataStore)
-
     // Serialization
     implementation(Dependencies.Serialization.kotlinSerializationJson)
+
+    // Room
+    implementation(Dependencies.Room.runtime)
+    kapt(Dependencies.Room.compiler)
+    implementation(Dependencies.Room.ktx)
 }

@@ -50,11 +50,11 @@ fun MainScreenContentState(
     val coroutineScope = rememberCoroutineScope()
 
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier
     ) {
         LazyColumn(
             state = listState,
-            modifier = modifier
+            modifier = Modifier.fillMaxSize()
         ) {
             item {
                 when (weatherSectionState) {
@@ -126,7 +126,12 @@ fun MainScreenContentState(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .height(LifestyleHubTheme.sizes.placeCardHeight)
-                                        .padding(LifestyleHubTheme.paddings.medium)
+                                        .padding(LifestyleHubTheme.paddings.medium),
+                                    onClick = {
+                                        onAction(
+                                            MainScreenAction.OnPlaceClicked(pagingItem.id,)
+                                        )
+                                    }
                                 )
                             }
                         }

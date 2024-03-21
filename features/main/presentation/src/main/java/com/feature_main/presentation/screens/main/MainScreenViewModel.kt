@@ -1,6 +1,5 @@
 package com.feature_main.presentation.screens.main
 
-import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.common.ui.state_hoisting.StatefulViewModel
 import com.common.ui.utils.UIText
@@ -9,7 +8,7 @@ import com.feature_main.presentation.screens.main.state_hoisting.MainScreenActio
 import com.feature_main.presentation.screens.main.state_hoisting.MainScreenState
 import com.feature_main.presentation.screens.main.state_hoisting.NearbySectionState
 import com.feature_main.presentation.screens.main.state_hoisting.WeatherSectionState
-import com.lifestylehub.features.main.screens.main.presentation.state_hoisting.MainScreenEffect
+import com.feature_main.presentation.screens.main.state_hoisting.MainScreenEffect
 import com.main.domain.models.UserLocation
 import com.main.domain.models.results.ObtainingNearbyPlacesResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
@@ -73,6 +72,16 @@ class MainScreenViewModel(
             is MainScreenAction.OnRefreshAllData -> {
                 refreshAllData()
             }
+
+            is MainScreenAction.OnPlaceClicked -> {
+                onPlaceClicked(action.id)
+            }
+        }
+    }
+
+    private fun onPlaceClicked(id: String) {
+        viewModelScope.launch {
+            updateEffect(MainScreenEffect.NavigateToPlaceDetailsScreen(id))
         }
     }
 

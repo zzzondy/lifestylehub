@@ -23,9 +23,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.common.ui.extensions.shimmerEffect
 import com.common.ui.extensions.toPx
@@ -86,7 +86,7 @@ fun PlaceWidget(
                     Icon(
                         imageVector = Icons.Rounded.LocationOn,
                         contentDescription = stringResource(R.string.your_location),
-                        modifier = Modifier.size(24.dp),
+                        modifier = Modifier.size(LifestyleHubTheme.sizes.medium),
                     )
 
                     Text(
@@ -129,11 +129,11 @@ fun PlaceWidget(
                                 AsyncImage(
                                     model = category.icon,
                                     contentDescription = stringResource(R.string.categories),
-                                    modifier = Modifier.size(24.dp)
+                                    modifier = Modifier.size(LifestyleHubTheme.sizes.medium),
+                                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.primary)
                                 )
 
                                 Spacer(modifier = Modifier.width(LifestyleHubTheme.paddings.extraExtraSmall))
-
 
                                 Text(
                                     text = category.name,
@@ -196,7 +196,7 @@ fun LoadingPlaceWidget(
                     Icon(
                         imageVector = Icons.Rounded.LocationOn,
                         contentDescription = stringResource(R.string.your_location),
-                        modifier = Modifier.size(24.dp),
+                        modifier = Modifier.size(LifestyleHubTheme.sizes.medium),
                     )
 
                     Text(
@@ -240,7 +240,7 @@ fun LoadingPlaceWidget(
                         ) {
                             Box(
                                 modifier = Modifier
-                                    .size(24.dp)
+                                    .size(LifestyleHubTheme.sizes.medium)
                                     .shimmerEffect(true, MaterialTheme.shapes.medium)
                             )
 

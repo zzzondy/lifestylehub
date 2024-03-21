@@ -19,6 +19,7 @@ include(":app")
 include(":common:ui")
 include(":common:navigation")
 include(":common:network")
+include(":common:local_storage")
 
 
 include(":features:main:presentation")

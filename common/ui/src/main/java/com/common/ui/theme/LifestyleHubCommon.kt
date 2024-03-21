@@ -19,6 +19,15 @@ data class LifestyleHubSizes(
     val weatherCardHeight: Dp,
     val placeImageSize: Dp,
     val placeCardHeight: Dp,
+    val placeBestPhotoHeight: Dp,
+    val placeBestPhotoWidth: Dp,
+    val placeDetailsPhotoHeight: Dp,
+    val placeDetailsPhotoWidth: Dp,
+    val medium: Dp,
+    val large: Dp,
+    val extraLarge: Dp,
+    val small: Dp,
+    val extraSmall: Dp,
 )
 
 object LifestyleHubTheme {

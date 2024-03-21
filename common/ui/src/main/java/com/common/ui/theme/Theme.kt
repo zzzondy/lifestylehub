@@ -11,6 +11,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
@@ -108,6 +109,15 @@ private val sizes = LifestyleHubSizes(
     weatherCardHeight = 196.dp,
     placeImageSize = 150.dp,
     placeCardHeight = 210.dp,
+    placeBestPhotoHeight = 250.dp,
+    placeBestPhotoWidth = 400.dp,
+    medium = 24.dp,
+    large = 32.dp,
+    extraLarge = 64.dp,
+    small = 16.dp,
+    extraSmall = 12.dp,
+    placeDetailsPhotoHeight = 200.dp,
+    placeDetailsPhotoWidth = 200.dp
 )
 
 
@@ -129,9 +139,15 @@ fun LifestyleHubTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            val activity = view.context as Activity
+            activity.window.statusBarColor = Color.Transparent.toArgb()
+            activity.window.navigationBarColor = Color.Transparent.toArgb()
+            WindowCompat.getInsetsController(activity.window, view).isAppearanceLightStatusBars =
+                !darkTheme
+            WindowCompat.getInsetsController(
+                activity.window,
+                view
+            ).isAppearanceLightNavigationBars = !darkTheme
         }
     }
 

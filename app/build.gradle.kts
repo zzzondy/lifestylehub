@@ -73,6 +73,7 @@ dependencies {
     implementation(project(Modules.commonUi))
     implementation(project(Modules.commonNavigation))
     implementation(project(Modules.commonNetwork))
+    implementation(project(Modules.commonLocalStorage))
 
     implementation(project(Modules.featuresMainPresentation))
 
@@ -97,8 +98,10 @@ dependencies {
     implementation(Dependencies.Dagger.dagger)
     kapt(Dependencies.Dagger.compiler)
 
-    // Local storage
-    implementation(Dependencies.LocalStorage.dataStore)
+    // Room
+    implementation(Dependencies.Room.runtime)
+    kapt(Dependencies.Room.compiler)
+    implementation(Dependencies.Room.ktx)
 
     // Testing
     testImplementation(Dependencies.Testing.junit)

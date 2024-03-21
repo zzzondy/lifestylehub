@@ -57,6 +57,7 @@ dependencies {
 
     // Compose ui
     implementation(Dependencies.Compose.material3)
+    implementation(Dependencies.Compose.toolingPreview)
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.composeActivity)

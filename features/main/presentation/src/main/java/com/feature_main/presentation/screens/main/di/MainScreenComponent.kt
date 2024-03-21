@@ -5,7 +5,7 @@ import dagger.Subcomponent
 
 @MainScreenScope
 @Subcomponent(
-    modules = [ScreenModule::class]
+    modules = [MainScreenModule::class]
 )
 interface MainScreenComponent {
 

@@ -6,6 +6,7 @@ object Modules {
     const val commonUi = ":common:ui"
     const val commonNavigation = ":common:navigation"
     const val commonNetwork = ":common:network"
+    const val commonLocalStorage = ":common:local_storage"
 
     // Features
 

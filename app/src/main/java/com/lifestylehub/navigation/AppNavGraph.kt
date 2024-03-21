@@ -16,7 +16,7 @@ fun AppNavGraph(
     NavHost(
         navController = navController,
         startDestination = featureNavigationApis[0].navigationRoute,
-        modifier = modifier
+        modifier = modifier,
     ) {
         featureNavigationApis.forEach { featuresNavigationApi ->
             register(

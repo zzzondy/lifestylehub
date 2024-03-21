@@ -20,5 +20,13 @@
     <string name="error_occured">Произошла какая-то ошибка</string>
     <string name="you_have_reached_maximum">Вы долистали до конца</string>
     <string name="arrow_up">Стрелка вверх</string>
+    <string name="arrow_back">Стрелка назад</string>
     <string name="recommended_places">Хорошие места неподалеку</string>
+    <string name="contacts">Контакты</string>
+    <string name="instagram">Инстаграм</string>
+    <string name="twitter">Твиттер</string>
+    <string name="facebook">Фейсбук</string>
+    <string name="phone">Телефон</string>
+    <string name="no_contacts">Нет контактов</string>
+    <string name="place_details">Подробности</string>
 </resources>
