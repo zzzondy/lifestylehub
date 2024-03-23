@@ -1,6 +1,5 @@
 package com.main.data.local.entities
 
-import android.util.Log
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index

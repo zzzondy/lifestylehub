@@ -1,6 +1,5 @@
 package com.main.data.repository
 
-import android.util.Log
 import com.main.data.local.repository.LocalMainFeatureRepository
 import com.main.data.local.results.LocalObtainingPlaceDetailsResult
 import com.main.data.remote.models.results.RemoteObtainingPlaceDetailsResult

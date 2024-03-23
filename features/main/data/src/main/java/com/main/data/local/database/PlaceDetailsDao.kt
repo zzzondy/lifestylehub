@@ -6,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.main.data.local.PlaceDetailsDatabaseContract
 import com.main.data.local.entities.PlaceDetailsEntity
-import com.main.domain.models.places.PlaceDetails
 
 @Dao
 interface PlaceDetailsDao {

@@ -87,6 +87,7 @@ dependencies {
     // Modules
     implementation(project(Modules.featuresMainDomain))
     implementation(project(Modules.commonNetwork))
+    implementation(project(Modules.commonPlannerFeatureData))
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.core)

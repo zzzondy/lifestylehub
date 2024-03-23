@@ -32,7 +32,6 @@ import com.main.domain.models.places.PlaceDetails
 @Composable
 fun PlaceDetailsScreenContentState(
     placeDetails: PlaceDetails,
-    onAction: (PlaceDetailsScreenAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(

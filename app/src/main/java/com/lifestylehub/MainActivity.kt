@@ -7,6 +7,7 @@ import androidx.core.view.WindowCompat
 import com.common.ui.theme.LifestyleHubTheme
 
 class MainActivity : ComponentActivity() {
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
@@ -16,8 +17,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             LifestyleHubTheme {
                 AppContent(
-                    bottomBarItems = navigationComponent.bottomBarItems.toList(),
-                    featureNavigationApis = navigationComponent.featureNavigationApis.toList()
+                    bottomBarItems = navigationComponent.bottomBarItems.toList().sortedBy { it.nameId },
+                    featureNavigationApis = navigationComponent.featureNavigationApis.toList().sortedBy { it.navigationRoute }
                 )
             }
         }

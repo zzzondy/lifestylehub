@@ -23,15 +23,19 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/common/local_storage" />
             <option value="$PROJECT_DIR$/common/navigation" />
             <option value="$PROJECT_DIR$/common/network" />
+            <option value="$PROJECT_DIR$/common/planner_feature_data" />
             <option value="$PROJECT_DIR$/common/ui" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/main" />
             <option value="$PROJECT_DIR$/features/main/data" />
             <option value="$PROJECT_DIR$/features/main/domain" />
             <option value="$PROJECT_DIR$/features/main/presentation" />
+            <option value="$PROJECT_DIR$/features/planner" />
+            <option value="$PROJECT_DIR$/features/planner/data" />
+            <option value="$PROJECT_DIR$/features/planner/domain" />
+            <option value="$PROJECT_DIR$/features/planner/presentation" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

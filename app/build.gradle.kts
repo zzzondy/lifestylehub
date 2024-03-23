@@ -73,9 +73,10 @@ dependencies {
     implementation(project(Modules.commonUi))
     implementation(project(Modules.commonNavigation))
     implementation(project(Modules.commonNetwork))
-    implementation(project(Modules.commonLocalStorage))
+    implementation(project(Modules.commonPlannerFeatureData))
 
     implementation(project(Modules.featuresMainPresentation))
+    implementation(project(Modules.featuresPlannerPresentation))
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.core)

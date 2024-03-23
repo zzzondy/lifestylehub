@@ -1,8 +1,6 @@
 package com.main.data.local.repository
 
 import android.content.SharedPreferences
-import android.util.Log
-import com.main.data.local.database.PlaceDetailsDao
 import com.main.data.local.database.PlaceDetailsDatabase
 import com.main.data.local.results.LocalObtainingPlaceDetailsResult
 import com.main.data.utils.mappers.toEntity

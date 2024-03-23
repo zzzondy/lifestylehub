@@ -6,8 +6,11 @@ import com.feature_main.presentation.di.MainFeatureComponent
 import com.feature_main.presentation.di.MainFeatureComponentProvider
 import com.lifestylehub.di.application.AppComponent
 import com.lifestylehub.di.application.DaggerAppComponent
+import com.planner.presentation.di.PlannerFeatureComponent
+import com.planner.presentation.di.PlannerFeatureComponentProvider
 
-class LifecycleHubApp : Application(), MainFeatureComponentProvider {
+class LifecycleHubApp : Application(), MainFeatureComponentProvider,
+    PlannerFeatureComponentProvider {
     private var _appComponent: AppComponent? = null
 
     val appComponent: AppComponent
@@ -22,6 +25,9 @@ class LifecycleHubApp : Application(), MainFeatureComponentProvider {
 
     override fun provideMainFeatureComponent(): MainFeatureComponent =
         appComponent.mainFeatureComponentFactory.create()
+
+    override fun providePlannerFeatureComponent(): PlannerFeatureComponent =
+        appComponent.plannerFeatureComponentFactory.create()
 }
 
 val Context.appComponent: AppComponent

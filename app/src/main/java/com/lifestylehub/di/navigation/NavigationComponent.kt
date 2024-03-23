@@ -4,11 +4,12 @@ import com.common.navigation.BottomBarItem
 import com.common.navigation.FeatureNavigationApi
 import com.common.navigation.di.NavigationScope
 import com.feature_main.presentation.di.MainFeatureNavigationModule
+import com.planner.presentation.di.PlannerFeatureNavigationModule
 import dagger.Subcomponent
 
 @NavigationScope
 @Subcomponent(
-    modules = [MainFeatureNavigationModule::class]
+    modules = [MainFeatureNavigationModule::class, PlannerFeatureNavigationModule::class]
 )
 interface NavigationComponent {
 

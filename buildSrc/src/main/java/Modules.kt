@@ -6,11 +6,15 @@ object Modules {
     const val commonUi = ":common:ui"
     const val commonNavigation = ":common:navigation"
     const val commonNetwork = ":common:network"
-    const val commonLocalStorage = ":common:local_storage"
+    const val commonPlannerFeatureData = ":common:planner_feature_data"
 
     // Features
 
     const val featuresMainPresentation = ":features:main:presentation"
     const val featuresMainDomain = ":features:main:domain"
     const val featuresMainData = ":features:main:data"
+
+    const val featuresPlannerPresentation = ":features:planner:presentation"
+    const val featuresPlannerDomain = ":features:planner:domain"
+    const val featuresPlannerData = ":features:planner:data"
 }

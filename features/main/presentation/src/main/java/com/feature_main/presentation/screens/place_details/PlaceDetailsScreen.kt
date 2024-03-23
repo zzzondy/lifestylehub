@@ -55,7 +55,6 @@ private fun PlaceDetailsScreenContent(
             is PlaceDetailsScreenState.Content -> {
                 PlaceDetailsScreenContentState(
                     placeDetails = state.placeDetails,
-                    onAction = onAction,
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(top = paddingValues.calculateTopPadding())

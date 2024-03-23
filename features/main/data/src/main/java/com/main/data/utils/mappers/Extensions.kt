@@ -2,7 +2,6 @@ package com.main.data.utils.mappers
 
 import com.common.network.location.MapLocation
 import com.main.data.local.entities.PlaceDetailsEntity
-import com.main.data.local.results.LocalObtainingPlaceDetailsResult
 import com.main.data.remote.models.places.PhotoDetails
 import com.main.data.remote.models.places.PlaceDetailsVenue
 import com.main.data.remote.models.places.PlaceResponse

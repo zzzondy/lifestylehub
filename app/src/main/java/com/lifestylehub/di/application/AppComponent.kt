@@ -3,6 +3,7 @@ package com.lifestylehub.di.application
 import android.content.Context
 import com.feature_main.presentation.di.MainFeatureComponent
 import com.lifestylehub.di.navigation.NavigationComponent
+import com.planner.presentation.di.PlannerFeatureComponent
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -19,4 +20,6 @@ interface AppComponent {
     }
 
     val mainFeatureComponentFactory: MainFeatureComponent.Factory
+
+    val plannerFeatureComponentFactory: PlannerFeatureComponent.Factory
 }
