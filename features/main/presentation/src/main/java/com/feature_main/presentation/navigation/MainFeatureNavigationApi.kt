@@ -18,8 +18,8 @@ import com.common.ui.utils.AnimationConstants
 import com.feature_main.presentation.di.MainFeatureComponentProvider
 import com.feature_main.presentation.screens.main.MainScreen
 import com.feature_main.presentation.screens.main.MainScreenViewModel
-import com.feature_main.presentation.screens.place_details.PlaceDetailsScreen
-import com.feature_main.presentation.screens.place_details.PlaceDetailsScreenViewModel
+import com.place_details.presentation.place_details.PlaceDetailsScreen
+import com.place_details.presentation.place_details.PlaceDetailsScreenViewModel
 
 class MainFeatureNavigationApi : FeatureNavigationApi {
 

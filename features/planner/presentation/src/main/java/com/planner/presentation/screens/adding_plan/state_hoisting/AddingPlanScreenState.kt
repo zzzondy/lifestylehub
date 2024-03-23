@@ -1,7 +1,5 @@
 package com.planner.presentation.screens.adding_plan.state_hoisting
 
-import java.util.Calendar
-
 sealed class AddingPlanScreenState {
 
     data class Content(

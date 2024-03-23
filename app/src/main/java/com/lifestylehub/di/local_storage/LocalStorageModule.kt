@@ -2,10 +2,7 @@ package com.lifestylehub.di.local_storage
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.main.data.local.database.PlaceDetailsDatabase
-import com.planner_feature_data.local.database.PlannerFeatureDatabase
-import com.planner_feature_data.local.repository.LocalPlannerFeatureRepository
-import com.planner_feature_data.local.repository.LocalPlannerFeatureRepositoryImpl
+import com.place_details.data.local.database.PlaceDetailsDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

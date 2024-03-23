@@ -4,11 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import androidx.room.TypeConverters
 import com.planner_feature_data.local.database.PlannerFeatureDatabaseContract
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 @Entity(
     tableName = PlannerFeatureDatabaseContract.TABLE_NAME,

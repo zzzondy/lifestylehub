@@ -2,7 +2,6 @@ package com.feature_main.presentation.di
 
 import android.content.SharedPreferences
 import com.common.network.location.LocationManager
-import com.main.data.local.database.PlaceDetailsDatabase
 import com.main.data.local.repository.LocalMainFeatureRepository
 import com.main.data.local.repository.LocalMainFeatureRepositoryImpl
 import com.main.data.remote.network.MainFeatureNetworkService
@@ -34,9 +33,10 @@ class RepositoryModule {
     @Provides
     fun provideLocalMainFeatureRepository(
         preferences: SharedPreferences,
-        placesDatabase: PlaceDetailsDatabase,
     ): LocalMainFeatureRepository =
-        LocalMainFeatureRepositoryImpl(preferences, placesDatabase)
+        LocalMainFeatureRepositoryImpl(
+            preferences
+        )
 
     @MainComponentScope
     @Provides

@@ -21,6 +21,9 @@ include(":common:navigation")
 include(":common:network")
 include(":common:planner_feature_data")
 
+include(":common:feature:place_details:presentation")
+include(":common:feature:place_details:data")
+include(":common:feature:place_details:domain")
 
 include(":features:main:presentation")
 include(":features:main:domain")

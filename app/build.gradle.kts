@@ -74,6 +74,7 @@ dependencies {
     implementation(project(Modules.commonNavigation))
     implementation(project(Modules.commonNetwork))
     implementation(project(Modules.commonPlannerFeatureData))
+    implementation(project(Modules.commonFeaturesPlaceDetailsPresentation))
 
     implementation(project(Modules.featuresMainPresentation))
     implementation(project(Modules.featuresPlannerPresentation))

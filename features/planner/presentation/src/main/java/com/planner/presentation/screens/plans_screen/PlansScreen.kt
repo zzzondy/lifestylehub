@@ -55,7 +55,6 @@ fun PlansScreen(
 private fun PlansScreenContent(
     state: PlansScreenState,
     onAction: (PlansScreenAction) -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier.fillMaxSize()

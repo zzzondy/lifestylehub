@@ -23,6 +23,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/feature" />
+            <option value="$PROJECT_DIR$/common/feature/place_details" />
+            <option value="$PROJECT_DIR$/common/feature/place_details/data" />
+            <option value="$PROJECT_DIR$/common/feature/place_details/domain" />
+            <option value="$PROJECT_DIR$/common/feature/place_details/presentation" />
             <option value="$PROJECT_DIR$/common/navigation" />
             <option value="$PROJECT_DIR$/common/network" />
             <option value="$PROJECT_DIR$/common/planner_feature_data" />

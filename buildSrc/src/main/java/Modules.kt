@@ -8,6 +8,10 @@ object Modules {
     const val commonNetwork = ":common:network"
     const val commonPlannerFeatureData = ":common:planner_feature_data"
 
+    const val commonFeaturesPlaceDetailsPresentation = ":common:feature:place_details:presentation"
+    const val commonFeaturesPlaceDetailsDomain = ":common:feature:place_details:domain"
+    const val commonFeaturesPlaceDetailsData = ":common:feature:place_details:data"
+
     // Features
 
     const val featuresMainPresentation = ":features:main:presentation"

@@ -28,7 +28,10 @@ data class PlaceResponse(
     val venue: Venue,
 
     @SerialName("photo")
-    val photo: PhotoDetails = PhotoDetails("", ""),
+    val photo: PhotoDetails = PhotoDetails(
+        "",
+        ""
+    ),
 )
 
 @Serializable

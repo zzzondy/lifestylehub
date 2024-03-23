@@ -68,6 +68,8 @@ dependencies {
     implementation(project(Modules.commonNavigation))
     implementation(project(Modules.commonNetwork))
 
+    implementation(project(Modules.commonFeaturesPlaceDetailsPresentation))
+
     api(project(Modules.featuresMainDomain))
     api(project(Modules.featuresMainData))
 
