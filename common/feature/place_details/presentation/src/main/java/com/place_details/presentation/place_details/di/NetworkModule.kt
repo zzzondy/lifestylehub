@@ -19,7 +19,7 @@ class NetworkModule {
     }
 
     @PlaceDetailsRetrofit
-    @PlaceDetailsScreenScope
+    @PlaceDetailsFeatureScope
     @Provides
     fun providePlaceDetailsRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(BuildConfig.FOUR_SQUARE_API_URL)
@@ -27,7 +27,7 @@ class NetworkModule {
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
 
-    @PlaceDetailsScreenScope
+    @PlaceDetailsFeatureScope
     @Provides
     fun providePlaceDetailsNetworkServiceService(@PlaceDetailsRetrofit retrofit: Retrofit): PlaceDetailsNetworkService =
         retrofit.create(PlaceDetailsNetworkService::class.java)

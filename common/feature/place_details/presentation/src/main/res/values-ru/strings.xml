@@ -29,4 +29,10 @@
     <string name="phone">Телефон</string>
     <string name="no_contacts">Нет контактов</string>
     <string name="place_details">Подробности</string>
+    <string name="add">Добавить</string>
+    <string name="you_planned_to_visit">Вы запланировали посетить</string>
+    <string name="name">Название</string>
+    <string name="clear">Очистить</string>
+    <string name="planner">Планнер</string>
+    <string name="adding_plan">Добавление плана</string>
 </resources>

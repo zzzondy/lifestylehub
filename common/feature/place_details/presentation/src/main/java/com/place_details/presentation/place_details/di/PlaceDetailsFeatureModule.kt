@@ -8,9 +8,9 @@ import dagger.Provides
 @Module(
     includes = [PlaceDetailsScreenUseCaseModule::class, RepositoryModule::class, NetworkModule::class]
 )
-class PlaceDetailsScreenModule {
+class PlaceDetailsFeatureModule {
 
-    @PlaceDetailsScreenScope
+    @PlaceDetailsFeatureScope
     @Provides
     fun providePlaceDetailsScreenViewModelFactory(getPlaceDetailsUseCase: GetPlaceDetailsUseCase): PlaceDetailsScreenViewModelFactoryFactory =
         PlaceDetailsScreenViewModelFactoryFactory(getPlaceDetailsUseCase)

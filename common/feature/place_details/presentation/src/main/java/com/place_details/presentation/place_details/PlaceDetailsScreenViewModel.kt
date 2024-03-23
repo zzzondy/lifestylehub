@@ -39,6 +39,21 @@ class PlaceDetailsScreenViewModel(
             is PlaceDetailsScreenAction.OnBackButtonClicked -> {
                 onBackButtonClicked()
             }
+
+            is PlaceDetailsScreenAction.OnAddPlanButtonClicked -> {
+                onAddPlanButtonClicked()
+            }
+        }
+    }
+
+    private fun onAddPlanButtonClicked() {
+        viewModelScope.launch {
+            updateEffect(
+                PlaceDetailsScreenEffect.NavigateToAddPlanScreen(
+                    placeId = (state.value as PlaceDetailsScreenState.Content).placeDetails.id,
+                    placeName = (state.value as PlaceDetailsScreenState.Content).placeDetails.name
+                )
+            )
         }
     }
 

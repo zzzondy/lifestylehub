@@ -24,12 +24,4 @@ sealed class UIText {
             is PluralsResource -> pluralStringResource(resId, quantity, *args)
         }
     }
-
-    fun asString(context: Context): String {
-        return when (this) {
-            is DynamicText -> value
-            is StringResource -> context.getString(resId, *args)
-            is PluralsResource -> context.resources.getQuantityString(resId, quantity, *args)
-        }
-    }
 }

@@ -5,13 +5,18 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.common.navigation.FeatureNavigationApi
 import com.common.navigation.daggerViewModel
 import com.common.ui.utils.AnimationConstants
+import com.place_details.presentation.place_details.PlaceDetailsScreen
+import com.place_details.presentation.place_details.PlaceDetailsScreenViewModel
 import com.planner.presentation.di.PlannerFeatureComponentProvider
 import com.planner.presentation.screens.adding_plan.AddingPlanScreen
 import com.planner.presentation.screens.plans_screen.PlansScreen
@@ -19,6 +24,8 @@ import com.planner.presentation.screens.plans_screen.PlansScreen
 class PlannerFeatureNavigationApi : FeatureNavigationApi {
 
     override val navigationRoute: String = PlannerFeatureScreens.navigationRoute
+
+    override val startDestinationRoute: String = PlannerFeatureScreens.startScreenDestination
 
     override fun registerFeatureNavigationGraph(
         navGraphBuilder: NavGraphBuilder,
@@ -76,6 +83,44 @@ class PlannerFeatureNavigationApi : FeatureNavigationApi {
                 AddingPlanScreen(
                     navController = navController,
                     viewModel = viewModel
+                )
+            }
+
+            composable(
+                route = PlannerFeatureScreens.PlaceDetailsScreen.route,
+                arguments = listOf(
+                    navArgument(PlannerFeatureScreens.PLACE_DETAILS_SCREEN_ID) {
+                        type = NavType.StringType
+                    }
+                ),
+                enterTransition = {
+                    slideIntoContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = tween(AnimationConstants.ENTER_ANIMATION)
+                    )
+                },
+                exitTransition = {
+                    slideOutOfContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = tween(AnimationConstants.EXIT_ANIMATION)
+                    )
+                }
+            ) {
+                val placeDetailsFeatureComponent =
+                    plannerFeatureComponent.placeDetailsFeatureComponentFactory.create()
+
+                val id =
+                    it.arguments?.getString(PlannerFeatureScreens.PLACE_DETAILS_SCREEN_ID)
+                        .toString()
+
+                val viewModel = viewModel<PlaceDetailsScreenViewModel>(
+                    factory = placeDetailsFeatureComponent.placeDetailsScreenViewModelFactory.create(id)
+                )
+
+                PlaceDetailsScreen(
+                    navController = navController,
+                    viewModel = viewModel,
+                    shouldToShowAddPlanButton = false,
                 )
             }
         }

@@ -56,7 +56,8 @@ dependencies {
     // Modules
     implementation(project(Modules.commonUi))
     implementation(project(Modules.commonNavigation))
-    implementation(project(Modules.commonNetwork))
+    api(project(Modules.commonNetwork))
+    api(project(Modules.commonPlannerFeatureData))
 
     api(project(Modules.commonFeaturesPlaceDetailsDomain))
     api(project(Modules.commonFeaturesPlaceDetailsData))
@@ -65,7 +66,6 @@ dependencies {
     implementation(platform(Dependencies.Compose.bom))
     implementation(Dependencies.Compose.ui)
     implementation(Dependencies.Compose.material3)
-    implementation(Dependencies.Compose.constraintLayout)
     implementation(Dependencies.Compose.uiGraphics)
     implementation(Dependencies.Compose.toolingPreview)
     implementation(Dependencies.Compose.navigation)

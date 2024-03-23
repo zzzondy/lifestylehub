@@ -38,6 +38,10 @@ fun PlansScreen(
             is PlansScreenEffect.NavigateToAddPlanScreen -> {
                 navController.navigate(PlannerFeatureScreens.AddingPlanScreen.route)
             }
+
+            is PlansScreenEffect.NavigateToPlaceDetailsScreen -> {
+                navController.navigate(PlannerFeatureScreens.PlaceDetailsScreen.passArguments(effect.placeId))
+            }
         }
     }
 
@@ -57,7 +61,9 @@ private fun PlansScreenContent(
     onAction: (PlansScreenAction) -> Unit,
 ) {
     Box(
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = LifestyleHubTheme.paddings.bottomBarPaddingValue)
     ) {
         when (state) {
             is PlansScreenState.EmptyList -> {

@@ -15,6 +15,4 @@ object Plugins {
     const val kapt = "kapt"
 
     const val kotlinSerialization = "org.jetbrains.kotlin.plugin.serialization"
-
-    const val daggerHilt = "dagger.hilt.android.plugin"
 }

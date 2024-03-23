@@ -1,5 +1,6 @@
 package com.planner.presentation.screens.plans_screen
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.common.ui.state_hoisting.StatefulViewModel
 import com.common.ui.utils.UIText
@@ -26,7 +27,7 @@ class PlansScreenViewModel(
     val state = _state.receiveAsFlow()
         .stateIn(viewModelScope, SharingStarted.Eagerly, PlansScreenState.Loading)
 
-    private var plansList = mutableListOf<Plan>()
+    private val plansList = mutableListOf<Plan>()
 
 
     override fun onAction(action: PlansScreenAction) {
@@ -38,6 +39,14 @@ class PlansScreenViewModel(
             is PlansScreenAction.OnScreenEntered -> getAllPlans()
 
             is PlansScreenAction.OnDeletePlan -> onDeletePlan(action.id)
+
+            is PlansScreenAction.OnPlanWithPlaceClicked -> onPlanWithPlaceClicked(action.placeId)
+        }
+    }
+
+    private fun onPlanWithPlaceClicked(placeId: String) {
+        viewModelScope.launch {
+            updateEffect(PlansScreenEffect.NavigateToPlaceDetailsScreen(placeId))
         }
     }
 
@@ -55,8 +64,9 @@ class PlansScreenViewModel(
                     if (result.plans.isEmpty()) {
                         updateState(PlansScreenState.EmptyList)
                     } else {
+                        plansList.clear()
                         plansList.addAll(result.plans)
-                        updateState(PlansScreenState.Content(result.plans))
+                        updateState(PlansScreenState.Content(plansList.toList()))
                     }
                 }
 
@@ -70,7 +80,9 @@ class PlansScreenViewModel(
     private fun onDeletePlan(id: Long) {
         viewModelScope.launch(Dispatchers.IO) {
             deletePlanByIdUseCase(id)
+            Log.d("Planner", id.toString())
             plansList.removeIf { it.id == id }
+            Log.d("Planner", plansList.toString())
             updateStateWithPlansList()
         }
     }

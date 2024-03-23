@@ -1,11 +1,13 @@
 package com.feature_main.presentation.screens.main
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.common.ui.extensions.collectAsEffect
+import com.common.ui.theme.LifestyleHubTheme
 import com.feature_main.presentation.navigation.MainFeatureScreens
 import com.feature_main.presentation.screens.main.components.content.MainScreenContentState
 import com.feature_main.presentation.screens.main.components.location_unavailable.MainScreenLocationUnavailableState
@@ -48,6 +50,7 @@ private fun MainScreenContent(
                 weatherSectionState = state.weatherSectionState,
                 nearbySectionState = state.nearbySectionState,
                 onAction = onAction,
+                modifier = Modifier.padding(bottom = LifestyleHubTheme.paddings.bottomBarPaddingValue)
             )
         }
 
@@ -55,7 +58,7 @@ private fun MainScreenContent(
             MainScreenLocationUnavailableState(
                 isRationaleShowLocationPermissionDialog = state.isRationaleShowLocationPermissionDialog,
                 onAction = onAction,
-                modifier = modifier
+                modifier = Modifier.padding(bottom = LifestyleHubTheme.paddings.bottomBarPaddingValue)
             )
         }
     }

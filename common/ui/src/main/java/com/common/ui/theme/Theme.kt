@@ -101,7 +101,8 @@ private val paddings = LifestyleHubPaddings(
     small = 14.dp,
     medium = 16.dp,
     large = 24.dp,
-    extraLarge = 32.dp
+    extraLarge = 32.dp,
+    bottomBarPaddingValue = 80.dp
 )
 
 private val sizes = LifestyleHubSizes(
@@ -110,7 +111,6 @@ private val sizes = LifestyleHubSizes(
     placeImageSize = 150.dp,
     placeCardHeight = 210.dp,
     placeBestPhotoHeight = 250.dp,
-    placeBestPhotoWidth = 400.dp,
     medium = 24.dp,
     large = 32.dp,
     extraLarge = 64.dp,

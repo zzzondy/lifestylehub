@@ -129,7 +129,7 @@ fun MainScreenContentState(
                                         .padding(LifestyleHubTheme.paddings.medium),
                                     onClick = {
                                         onAction(
-                                            MainScreenAction.OnPlaceClicked(pagingItem.id,)
+                                            MainScreenAction.OnPlaceClicked(pagingItem.id)
                                         )
                                     }
                                 )

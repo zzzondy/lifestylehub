@@ -6,8 +6,10 @@ import com.place_details.data.remote.repository.RemotePlaceDetailsFeatureReposit
 import com.place_details.data.remote.result.RemoteObtainingPlaceDetailsResult
 import com.place_details.data.remote.result.RemoteObtainingPlacePhotosResult
 import com.place_details.data.utils.toDomain
+import com.place_details.domain.models.planner.Plan
 import com.place_details.domain.models.results.ObtainingPlaceDetailsResult
 import com.place_details.domain.repository.PlaceDetailsFeatureRepository
+import com.planner_feature_data.local.models.PlanEntity
 import com.planner_feature_data.local.repository.LocalPlannerFeatureRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
@@ -16,6 +18,7 @@ import kotlinx.coroutines.launch
 class PlaceDetailsFeatureRepositoryImpl(
     private val localPlannerFeatureRepository: LocalPlaceDetailsFeatureRepository,
     private val remotePlaceDetailsFeatureRepository: RemotePlaceDetailsFeatureRepository,
+    private val plannerFeatureRepository: LocalPlannerFeatureRepository
 ) : PlaceDetailsFeatureRepository {
 
     override suspend fun getPlaceDetails(id: String): ObtainingPlaceDetailsResult {
@@ -48,5 +51,17 @@ class PlaceDetailsFeatureRepositoryImpl(
                 placeDetails = localPlaceDetailsResult.placeDetails.toDomain()
             )
         }
+    }
+
+    override suspend fun insertPlan(plan: Plan) {
+        plannerFeatureRepository.insertNewPlan(
+            PlanEntity(
+                name = plan.name,
+                date = plan.date,
+                notes = null,
+                placeId = plan.placeId,
+                placeName = plan.placeName
+            )
+        )
     }
 }

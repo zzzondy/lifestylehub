@@ -21,6 +21,8 @@ import com.place_details.presentation.place_details.state_hoisting.PlaceDetailsS
 fun PlaceDetailsScreen(
     navController: NavController,
     viewModel: PlaceDetailsScreenViewModel,
+    shouldToShowAddPlanButton: Boolean,
+    onAddPlanButtonClicked: ((String, String) -> String)? = null
 ) {
     val state by viewModel.state.collectAsState()
     viewModel.effect.collectAsEffect { effect ->
@@ -28,12 +30,19 @@ fun PlaceDetailsScreen(
             is PlaceDetailsScreenEffect.NavigateBack -> {
                 navController.popBackStack()
             }
+
+            is PlaceDetailsScreenEffect.NavigateToAddPlanScreen -> {
+                if (shouldToShowAddPlanButton && onAddPlanButtonClicked != null) {
+                    navController.navigate(onAddPlanButtonClicked(effect.placeId, effect.placeName))
+                }
+            }
         }
     }
 
     PlaceDetailsScreenContent(
         state = state,
         onAction = viewModel::onAction,
+        shouldToShowAddPlanButton = shouldToShowAddPlanButton,
     )
 }
 
@@ -41,6 +50,7 @@ fun PlaceDetailsScreen(
 private fun PlaceDetailsScreenContent(
     state: PlaceDetailsScreenState,
     onAction: (PlaceDetailsScreenAction) -> Unit,
+    shouldToShowAddPlanButton: Boolean
 ) {
     Scaffold(
         topBar = {
@@ -55,9 +65,11 @@ private fun PlaceDetailsScreenContent(
             is PlaceDetailsScreenState.Content -> {
                 PlaceDetailsScreenContentState(
                     placeDetails = state.placeDetails,
+                    shouldToShowAddPlanButton = shouldToShowAddPlanButton,
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(top = paddingValues.calculateTopPadding())
+                        .padding(top = paddingValues.calculateTopPadding()),
+                    onAction = onAction
                 )
             }
 

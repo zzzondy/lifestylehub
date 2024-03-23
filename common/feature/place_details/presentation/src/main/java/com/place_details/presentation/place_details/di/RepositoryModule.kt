@@ -8,12 +8,13 @@ import com.place_details.data.remote.repository.RemotePlaceDetailsFeatureReposit
 import com.place_details.data.remote.repository.RemotePlaceDetailsFeatureRepositoryImpl
 import com.place_details.data.repository.PlaceDetailsFeatureRepositoryImpl
 import com.place_details.domain.repository.PlaceDetailsFeatureRepository
+import com.planner_feature_data.local.repository.LocalPlannerFeatureRepository
 import dagger.Module
 import dagger.Provides
 
 @Module
 class RepositoryModule {
-    @PlaceDetailsScreenScope
+    @PlaceDetailsFeatureScope
     @Provides
     fun provideRemotePlaceDetailsFeatureRepository(
         placeDetailsNetworkService: PlaceDetailsNetworkService
@@ -21,7 +22,7 @@ class RepositoryModule {
         placeDetailsNetworkService
     )
 
-    @PlaceDetailsScreenScope
+    @PlaceDetailsFeatureScope
     @Provides
     fun provideLocalPlaceDetailsFeatureRepository(
         placeDetailsDatabase: PlaceDetailsDatabase
@@ -29,13 +30,17 @@ class RepositoryModule {
         LocalPlaceDetailsFeatureRepositoryImpl(
             placeDetailsDatabase
         )
-    @PlaceDetailsScreenScope
+
+    @PlaceDetailsFeatureScope
     @Provides
     fun providePlaceDetailsFeatureRepository(
         localPlaceDetailsFeatureRepository: LocalPlaceDetailsFeatureRepository,
-        remotePlaceDetailsFeatureRepository: RemotePlaceDetailsFeatureRepository
+        remotePlaceDetailsFeatureRepository: RemotePlaceDetailsFeatureRepository,
+        plannerFeatureRepository: LocalPlannerFeatureRepository
     ): PlaceDetailsFeatureRepository =
         PlaceDetailsFeatureRepositoryImpl(
-            localPlaceDetailsFeatureRepository, remotePlaceDetailsFeatureRepository
+            localPlaceDetailsFeatureRepository,
+            remotePlaceDetailsFeatureRepository,
+            plannerFeatureRepository
         )
 }

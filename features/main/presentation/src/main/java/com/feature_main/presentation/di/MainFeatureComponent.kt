@@ -1,7 +1,7 @@
 package com.feature_main.presentation.di
 
 import com.feature_main.presentation.screens.main.di.MainScreenComponent
-import com.place_details.presentation.place_details.di.PlaceDetailsScreenComponent
+import com.place_details.presentation.place_details.di.PlaceDetailsFeatureComponent
 import dagger.Subcomponent
 
 @MainComponentScope
@@ -16,5 +16,5 @@ interface MainFeatureComponent {
 
     val mainScreenComponentFactory: MainScreenComponent.Factory
 
-    val placeDetailsScreenComponentFactory: PlaceDetailsScreenComponent.Factory
+    val placeDetailsFeatureComponentFactory: PlaceDetailsFeatureComponent.Factory
 }

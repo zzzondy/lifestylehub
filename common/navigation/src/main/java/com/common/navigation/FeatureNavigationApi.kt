@@ -9,6 +9,8 @@ interface FeatureNavigationApi {
 
     val navigationRoute: String
 
+    val startDestinationRoute: String
+
     fun registerFeatureNavigationGraph(
         navGraphBuilder: NavGraphBuilder,
         navController: NavController,

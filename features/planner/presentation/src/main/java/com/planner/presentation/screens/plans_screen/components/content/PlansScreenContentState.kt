@@ -25,7 +25,14 @@ fun PlansScreenContentState(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = LifestyleHubTheme.paddings.medium),
-                onDelete = { onAction(PlansScreenAction.OnDeletePlan(plan.id)) }
+                onDelete = { onAction(PlansScreenAction.OnDeletePlan(plan.id)) },
+                onClick = {
+                    if (plan.placeId != null) onAction(
+                        PlansScreenAction.OnPlanWithPlaceClicked(
+                            plan.placeId.toString()
+                        )
+                    )
+                }
             )
 
             Spacer(modifier = Modifier.height(LifestyleHubTheme.paddings.medium))

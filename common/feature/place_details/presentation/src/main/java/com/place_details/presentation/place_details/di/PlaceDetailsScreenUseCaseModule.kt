@@ -8,7 +8,7 @@ import dagger.Provides
 @Module
 class PlaceDetailsScreenUseCaseModule {
 
-    @PlaceDetailsScreenScope
+    @PlaceDetailsFeatureScope
     @Provides
     fun provideGetPlaceDetailsUseCase(placeDetailsFeatureRepository: PlaceDetailsFeatureRepository): GetPlaceDetailsUseCase =
         GetPlaceDetailsUseCase(placeDetailsFeatureRepository)

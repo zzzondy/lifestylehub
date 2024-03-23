@@ -11,7 +11,8 @@ data class LifestyleHubPaddings(
     val small: Dp,
     val medium: Dp,
     val large: Dp,
-    val extraLarge: Dp
+    val extraLarge: Dp,
+    val bottomBarPaddingValue: Dp
 )
 
 data class LifestyleHubSizes(
@@ -20,7 +21,6 @@ data class LifestyleHubSizes(
     val placeImageSize: Dp,
     val placeCardHeight: Dp,
     val placeBestPhotoHeight: Dp,
-    val placeBestPhotoWidth: Dp,
     val placeDetailsPhotoHeight: Dp,
     val placeDetailsPhotoWidth: Dp,
     val medium: Dp,

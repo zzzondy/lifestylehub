@@ -54,6 +54,7 @@ fun PlanItem(
     LaunchedEffect(key1 = dismissState.currentValue) {
         if (dismissState.currentValue == SwipeToDismissBoxValue.EndToStart) {
             dismissState.snapTo(SwipeToDismissBoxValue.EndToStart)
+            dismissState.snapTo(SwipeToDismissBoxValue.Settled)
             onDelete()
         }
     }

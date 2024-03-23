@@ -9,4 +9,7 @@ sealed class PlansScreenAction {
     data object OnScreenEntered : PlansScreenAction()
 
     data class OnDeletePlan(val id: Long) : PlansScreenAction()
+
+    data class OnPlanWithPlaceClicked(val placeId: String) : PlansScreenAction()
+
 }

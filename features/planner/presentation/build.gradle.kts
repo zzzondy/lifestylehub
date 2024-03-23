@@ -56,6 +56,8 @@ dependencies {
     implementation(project(Modules.commonUi))
     implementation(project(Modules.commonNavigation))
 
+    implementation(project(Modules.commonFeaturesPlaceDetailsPresentation))
+
     api(project(Modules.featuresPlannerDomain))
     api(project(Modules.featuresPlannerData))
 

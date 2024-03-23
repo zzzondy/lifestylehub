@@ -3,8 +3,11 @@ package com.lifestylehub
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -12,6 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
@@ -28,10 +32,14 @@ fun AppContent(
     featureNavigationApis: List<FeatureNavigationApi>
 ) {
     val navController = rememberNavController()
+    val currentDestinationRoute =
+        navController.currentBackStackEntryAsState().value?.destination?.route
+
     val currentDestinationParentRoute =
         navController.currentBackStackEntryAsState().value?.destination?.parent?.route
+
     val shouldShowBottomBar =
-        bottomBarItems.any { it.navigationRoute == currentDestinationParentRoute } || currentDestinationParentRoute == null
+        featureNavigationApis.any { it.startDestinationRoute == currentDestinationRoute } || currentDestinationParentRoute == null
 
     Scaffold(
         bottomBar = {
@@ -54,7 +62,11 @@ fun AppContent(
             featureNavigationApis = featureNavigationApis,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
+                .padding(
+                    start = paddingValues.calculateStartPadding(LocalLayoutDirection.current),
+                    end = paddingValues.calculateEndPadding(LocalLayoutDirection.current),
+                )
+                .systemBarsPadding()
         )
     }
 }

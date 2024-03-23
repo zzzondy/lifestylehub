@@ -1,7 +1,5 @@
 package com.place_details.domain.models.places
 
-import com.place_details.domain.models.places.Category
-
 data class PlaceDetails(
     val id: String,
     val name: String,

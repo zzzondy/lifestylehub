@@ -20,10 +20,14 @@ import com.feature_main.presentation.screens.main.MainScreen
 import com.feature_main.presentation.screens.main.MainScreenViewModel
 import com.place_details.presentation.place_details.PlaceDetailsScreen
 import com.place_details.presentation.place_details.PlaceDetailsScreenViewModel
+import com.place_details.presentation.plan_adding.PlanAddingScreen
+import com.place_details.presentation.plan_adding.PlanAddingScreenViewModel
 
 class MainFeatureNavigationApi : FeatureNavigationApi {
 
     override val navigationRoute: String = MainFeatureScreens.navigationRoute
+
+    override val startDestinationRoute: String = MainFeatureScreens.startScreenRoute
 
     override fun registerFeatureNavigationGraph(
         navGraphBuilder: NavGraphBuilder,
@@ -37,6 +41,8 @@ class MainFeatureNavigationApi : FeatureNavigationApi {
             val context = navController.context.applicationContext
             val mainFeatureComponent =
                 (context as MainFeatureComponentProvider).provideMainFeatureComponent()
+            val placeDetailsScreenComponent =
+                mainFeatureComponent.placeDetailsFeatureComponentFactory.create()
 
             composable(
                 route = MainFeatureScreens.MainScreen.route,
@@ -68,16 +74,19 @@ class MainFeatureNavigationApi : FeatureNavigationApi {
                         animationSpec = tween(AnimationConstants.ENTER_ANIMATION)
                     )
                 },
-                exitTransition = {
+                popExitTransition = {
                     slideOutOfContainer(
                         AnimatedContentTransitionScope.SlideDirection.Right,
                         animationSpec = tween(AnimationConstants.EXIT_ANIMATION)
                     )
+                },
+                exitTransition = {
+                    fadeOut(animationSpec = tween(AnimationConstants.EXIT_ANIMATION))
+                },
+                popEnterTransition = {
+                    fadeIn(animationSpec = tween(AnimationConstants.ENTER_ANIMATION))
                 }
             ) {
-                val placeDetailsScreenComponent =
-                    mainFeatureComponent.placeDetailsScreenComponentFactory.create()
-
                 val id = it.arguments?.getString(MainFeatureScreens.PLACE_DETAILS_SCREEN_ID)
                     .toString()
 
@@ -90,7 +99,52 @@ class MainFeatureNavigationApi : FeatureNavigationApi {
                 PlaceDetailsScreen(
                     navController = navController,
                     viewModel = viewModel,
+                    shouldToShowAddPlanButton = true,
+                    onAddPlanButtonClicked = MainFeatureScreens.PlanAddingScreen::passArguments
                 )
+            }
+
+            composable(
+                route = MainFeatureScreens.PlanAddingScreen.route,
+                arguments = listOf(
+                    navArgument(MainFeatureScreens.PLACE_DETAILS_SCREEN_ID) {
+                        type = NavType.StringType
+                    },
+                    navArgument(MainFeatureScreens.PLAN_ADDING_SCREEN_PLACE_NAME) {
+                        type = NavType.StringType
+                    },
+                ),
+                enterTransition = {
+                    slideIntoContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Left,
+                        animationSpec = tween(AnimationConstants.ENTER_ANIMATION)
+                    )
+                },
+                popExitTransition = {
+                    slideOutOfContainer(
+                        AnimatedContentTransitionScope.SlideDirection.Right,
+                        animationSpec = tween(AnimationConstants.EXIT_ANIMATION)
+                    )
+                }
+            ) {
+                val planAddingScreenComponent =
+                    placeDetailsScreenComponent.planAddingScreenComponentFactory.create()
+
+                val id = it.arguments?.getString(MainFeatureScreens.PLACE_DETAILS_SCREEN_ID)
+                    .toString()
+
+                val placeName =
+                    it.arguments?.getString(MainFeatureScreens.PLAN_ADDING_SCREEN_PLACE_NAME)
+                        .toString()
+
+                val viewModel = viewModel<PlanAddingScreenViewModel>(
+                    factory = planAddingScreenComponent.planAddingScreenViewModelFactory.create(
+                        id,
+                        placeName
+                    )
+                )
+
+                PlanAddingScreen(navController = navController, viewModel = viewModel)
             }
         }
     }
