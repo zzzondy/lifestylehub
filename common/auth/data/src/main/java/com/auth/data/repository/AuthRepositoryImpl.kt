@@ -1,6 +1,5 @@
 package com.auth.data.repository
 
-import android.util.Log
 import com.auth.data.authorization.AuthDatabaseManager
 import com.auth.data.local.LocalAuthRepository
 import com.auth.data.remote.repository.RemoteAuthRepository

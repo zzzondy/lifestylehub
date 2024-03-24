@@ -1,5 +1,6 @@
 package com.place_details.presentation.place_details.components.content
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -72,7 +73,6 @@ fun PlaceDetailsScreenContentState(
                     LazyRow(
                         modifier = Modifier
                             .fillMaxSize()
-                            .height(LifestyleHubTheme.sizes.placeDetailsPhotoHeight)
                     ) {
                         itemsIndexed(placeDetails.placePhotos) { index, photo ->
                             if (index != 0) {

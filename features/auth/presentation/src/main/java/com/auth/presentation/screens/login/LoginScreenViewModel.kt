@@ -7,7 +7,6 @@ import com.auth.presentation.R
 import com.auth.presentation.screens.login.state_hoisting.LoginScreenAction
 import com.auth.presentation.screens.login.state_hoisting.LoginScreenEffect
 import com.auth.presentation.screens.login.state_hoisting.LoginScreenState
-import com.auth.presentation.screens.sign_up.state_hoisting.SignUpScreenEffect
 import com.common.ui.state_hoisting.StatefulViewModel
 import com.common.ui.utils.UIText
 import kotlinx.coroutines.Dispatchers

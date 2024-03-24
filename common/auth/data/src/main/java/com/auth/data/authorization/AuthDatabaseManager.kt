@@ -2,7 +2,6 @@ package com.auth.data.authorization
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.security.crypto.EncryptedSharedPreferences
 import com.auth.data.BuildConfig
 import com.auth.data.authorization.database.AuthDatabase
 import net.sqlcipher.database.SQLiteDatabase

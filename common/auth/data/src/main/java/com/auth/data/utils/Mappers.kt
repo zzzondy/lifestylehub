@@ -14,17 +14,6 @@ fun UserEntity.toDomain(): User = User(
     email = this.email,
 )
 
-fun User.toEntity(password: String): UserEntity = UserEntity(
-    id = this.id,
-    name = this.name,
-    surname = this.surname,
-    login = this.login,
-    phone = this.phone,
-    photo = this.photo,
-    email = this.email,
-    password = password
-)
-
 fun RandomUser.toEntity(password: String) = UserEntity(
     name = this.name.first,
     surname = this.name.last,

@@ -1,7 +1,6 @@
 package com.auth.presentation.screens.profile.di
 
 import com.auth.domain.repository.AuthRepository
-import com.auth.domain.use_cases.CreateUserUseCase
 import com.auth.domain.use_cases.GetCurrentUserUseCase
 import com.auth.domain.use_cases.SignOutUseCase
 import dagger.Module

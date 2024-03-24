@@ -1,7 +1,6 @@
 package com.auth.data.local
 
 import android.content.SharedPreferences
-import android.util.Log
 
 class LocalAuthRepositoryImpl(
     private val sharedPreferences: SharedPreferences,

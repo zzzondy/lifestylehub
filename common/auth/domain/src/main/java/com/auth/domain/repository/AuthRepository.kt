@@ -4,7 +4,6 @@ import com.auth.domain.models.User
 import com.auth.domain.results.CreatingUserResult
 import com.auth.domain.results.LoginResult
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
 
 interface AuthRepository {
 

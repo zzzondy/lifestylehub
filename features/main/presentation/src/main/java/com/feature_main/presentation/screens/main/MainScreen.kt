@@ -19,7 +19,6 @@ import com.feature_main.presentation.screens.main.state_hoisting.MainScreenState
 fun MainScreen(
     navController: NavController,
     viewModel: MainScreenViewModel,
-    modifier: Modifier = Modifier
 ) {
     val state by viewModel.state.collectAsState()
 
