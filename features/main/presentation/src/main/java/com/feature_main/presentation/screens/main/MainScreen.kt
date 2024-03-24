@@ -34,7 +34,6 @@ fun MainScreen(
     MainScreenContent(
         state = state,
         onAction = viewModel::onAction,
-        modifier = modifier
     )
 }
 
@@ -42,7 +41,6 @@ fun MainScreen(
 private fun MainScreenContent(
     state: MainScreenState,
     onAction: (MainScreenAction) -> Unit,
-    modifier: Modifier = Modifier
 ) {
     when (state) {
         is MainScreenState.Content -> {

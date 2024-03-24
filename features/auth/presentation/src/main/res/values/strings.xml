@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Profile</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="user_photo">User photo</string>
+    <string name="sign_up_description">Sign up to get access to unique content</string>
+    <string name="clear">Clear</string>
+    <string name="lock">Lock</string>
+    <string name="very_short_password">Password should contain at least 8 symbols</string>
+    <string name="password_should_contains_digits_and_letters">Password should contain digits and letters</string>
+    <string name="password_should_contains_uppercase_and_lowercase">Password should contain uppercase and lowercase</string>
+    <string name="some_error_occurred">Some error occurred</string>
+    <string name="network_error_occurred">Check your internet connection and try again later</string>
+    <string name="wrong_password_or_login">Wrong login or password</string>
+    <string name="login_description">Login to get access to unique content</string>
+    <string name="password_visibility">Password visibility</string>
+    <string name="password">Password</string>
+    <string name="login_title">Login</string>
+    <string name="arrow_back">Arrow back</string>
+    <string name="sign_out">Sign out</string>
+</resources>

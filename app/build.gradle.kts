@@ -78,6 +78,7 @@ dependencies {
 
     implementation(project(Modules.featuresMainPresentation))
     implementation(project(Modules.featuresPlannerPresentation))
+    implementation(project(Modules.featuresAuthPresentation))
 
     // Lifecycle
     implementation(Dependencies.Lifecycle.core)

@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
             LifestyleHubTheme {
                 AppContent(
                     bottomBarItems = navigationComponent.bottomBarItems.toList().sortedBy { it.nameId },
-                    featureNavigationApis = navigationComponent.featureNavigationApis.toList().sortedBy { it.navigationRoute }
+                    featureNavigationApis = navigationComponent.featureNavigationApis.toList()
                 )
             }
         }

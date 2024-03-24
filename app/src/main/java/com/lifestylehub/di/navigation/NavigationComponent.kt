@@ -1,5 +1,6 @@
 package com.lifestylehub.di.navigation
 
+import com.auth.presentation.di.AuthFeatureNavigationModule
 import com.common.navigation.BottomBarItem
 import com.common.navigation.FeatureNavigationApi
 import com.common.navigation.di.NavigationScope
@@ -9,7 +10,7 @@ import dagger.Subcomponent
 
 @NavigationScope
 @Subcomponent(
-    modules = [MainFeatureNavigationModule::class, PlannerFeatureNavigationModule::class]
+    modules = [MainFeatureNavigationModule::class, PlannerFeatureNavigationModule::class, AuthFeatureNavigationModule::class]
 )
 interface NavigationComponent {
 

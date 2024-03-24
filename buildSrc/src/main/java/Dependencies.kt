@@ -75,4 +75,14 @@ object Dependencies {
         const val ktx = "androidx.room:room-ktx:$roomVersion"
     }
 
+    object SqlCipher {
+        const val sqlCipher = "net.zetetic:android-database-sqlcipher:4.5.3"
+        const val sqlite = "androidx.sqlite:sqlite:2.1.0"
+    }
+
+    object Crypto {
+
+        const val crypto = "androidx.security:security-crypto-ktx:1.1.0-alpha06"
+    }
+
 }

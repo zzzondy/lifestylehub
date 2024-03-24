@@ -117,7 +117,8 @@ private val sizes = LifestyleHubSizes(
     small = 16.dp,
     extraSmall = 12.dp,
     placeDetailsPhotoHeight = 200.dp,
-    placeDetailsPhotoWidth = 200.dp
+    placeDetailsPhotoWidth = 200.dp,
+    extraExtraLarge = 128.dp
 )
 
 

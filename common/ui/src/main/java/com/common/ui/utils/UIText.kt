@@ -1,6 +1,5 @@
 package com.common.ui.utils
 
-import android.content.Context
 import androidx.annotation.PluralsRes
 import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable

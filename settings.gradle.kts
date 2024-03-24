@@ -25,6 +25,9 @@ include(":common:feature:place_details:presentation")
 include(":common:feature:place_details:data")
 include(":common:feature:place_details:domain")
 
+include(":common:auth:domain")
+include(":common:auth:data")
+
 include(":features:main:presentation")
 include(":features:main:domain")
 include(":features:main:data")
@@ -32,3 +35,5 @@ include(":features:main:data")
 include(":features:planner:presentation")
 include(":features:planner:domain")
 include(":features:planner:data")
+
+include(":features:auth:presentation")

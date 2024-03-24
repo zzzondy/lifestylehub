@@ -2,6 +2,8 @@ package com.lifestylehub
 
 import android.app.Application
 import android.content.Context
+import com.auth.presentation.di.AuthFeatureComponent
+import com.auth.presentation.di.AuthFeatureComponentProvider
 import com.feature_main.presentation.di.MainFeatureComponent
 import com.feature_main.presentation.di.MainFeatureComponentProvider
 import com.lifestylehub.di.application.AppComponent
@@ -10,7 +12,7 @@ import com.planner.presentation.di.PlannerFeatureComponent
 import com.planner.presentation.di.PlannerFeatureComponentProvider
 
 class LifecycleHubApp : Application(), MainFeatureComponentProvider,
-    PlannerFeatureComponentProvider {
+    PlannerFeatureComponentProvider, AuthFeatureComponentProvider {
     private var _appComponent: AppComponent? = null
 
     val appComponent: AppComponent
@@ -28,6 +30,9 @@ class LifecycleHubApp : Application(), MainFeatureComponentProvider,
 
     override fun providePlannerFeatureComponent(): PlannerFeatureComponent =
         appComponent.plannerFeatureComponentFactory.create()
+
+    override fun provideAuthFeatureComponent(): AuthFeatureComponent =
+        appComponent.authFeatureComponentFactory.create()
 }
 
 val Context.appComponent: AppComponent

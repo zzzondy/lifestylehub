@@ -26,6 +26,7 @@ data class LifestyleHubSizes(
     val medium: Dp,
     val large: Dp,
     val extraLarge: Dp,
+    val extraExtraLarge: Dp,
     val small: Dp,
     val extraSmall: Dp,
 )

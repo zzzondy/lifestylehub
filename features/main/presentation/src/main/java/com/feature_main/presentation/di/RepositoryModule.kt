@@ -2,6 +2,7 @@ package com.feature_main.presentation.di
 
 import android.content.SharedPreferences
 import com.common.network.location.LocationManager
+import com.feature_main.presentation.di.qualifiers.PermissionsSharedPreference
 import com.main.data.local.repository.LocalMainFeatureRepository
 import com.main.data.local.repository.LocalMainFeatureRepositoryImpl
 import com.main.data.remote.network.MainFeatureNetworkService
@@ -32,7 +33,7 @@ class RepositoryModule {
     @MainComponentScope
     @Provides
     fun provideLocalMainFeatureRepository(
-        preferences: SharedPreferences,
+        @PermissionsSharedPreference preferences: SharedPreferences,
     ): LocalMainFeatureRepository =
         LocalMainFeatureRepositoryImpl(
             preferences

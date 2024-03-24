@@ -12,6 +12,10 @@ object Modules {
     const val commonFeaturesPlaceDetailsDomain = ":common:feature:place_details:domain"
     const val commonFeaturesPlaceDetailsData = ":common:feature:place_details:data"
 
+    const val commonAuthDomain = ":common:auth:domain"
+    const val commonAuthData = ":common:auth:data"
+    const val featuresAuthPresentation = ":features:auth:presentation"
+
     // Features
 
     const val featuresMainPresentation = ":features:main:presentation"

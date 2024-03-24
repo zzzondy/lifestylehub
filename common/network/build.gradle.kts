@@ -32,6 +32,11 @@ android {
                 "FOUR_SQUARE_API_URL",
                 "\"https://api.foursquare.com/v2/\""
             )
+            buildConfigField(
+                "String",
+                "RANDOMUSER_API_URL",
+                "\"https://randomuser.me/\""
+            )
         }
 
         debug {
@@ -49,6 +54,11 @@ android {
                 "String",
                 "FOUR_SQUARE_API_URL",
                 "\"https://api.foursquare.com/v2/\""
+            )
+            buildConfigField(
+                "String",
+                "RANDOMUSER_API_URL",
+                "\"https://randomuser.me/\""
             )
         }
     }
