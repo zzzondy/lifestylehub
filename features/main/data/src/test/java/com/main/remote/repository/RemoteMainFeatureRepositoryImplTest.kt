@@ -8,15 +8,12 @@ import com.main.data.remote.network.MainFeatureNetworkService
 import com.main.data.remote.network.NearbyPlacesNetworkService
 import com.main.data.remote.repository.RemoteMainFeatureRepositoryImpl
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
-import okhttp3.MediaType
 import okhttp3.ResponseBody
 import org.junit.Assert
 import org.junit.Test
 import retrofit2.Response
-import java.sql.Ref
 
 class RemoteMainFeatureRepositoryImplTest {
 

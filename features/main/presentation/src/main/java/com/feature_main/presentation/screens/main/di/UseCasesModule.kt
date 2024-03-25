@@ -1,9 +1,10 @@
 package com.feature_main.presentation.screens.main.di
 
 import com.main.domain.repository.MainFeatureRepository
-import com.main.domain.use_cases.ObtainUserLocationUseCase
 import com.main.domain.use_cases.GetLocationPermissionFlagUseCase
 import com.main.domain.use_cases.GetPagedNearbyPlacesUseCase
+import com.main.domain.use_cases.ObtainRandomTipUseCase
+import com.main.domain.use_cases.ObtainUserLocationUseCase
 import com.main.domain.use_cases.ObtainUserWeatherUseCase
 import com.main.domain.use_cases.UpdateLocationPermissionFlagUseCase
 import dagger.Module
@@ -36,4 +37,9 @@ class UseCasesModule {
     @Provides
     fun provideGetPagedNearbyPlacesUseCase(mainFeatureRepository: MainFeatureRepository): GetPagedNearbyPlacesUseCase =
         GetPagedNearbyPlacesUseCase(mainFeatureRepository)
+
+    @MainScreenScope
+    @Provides
+    fun provideObtainRandomTipUseCase(mainFeatureRepository: MainFeatureRepository): ObtainRandomTipUseCase =
+        ObtainRandomTipUseCase(mainFeatureRepository)
 }

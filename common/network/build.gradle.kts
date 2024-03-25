@@ -37,6 +37,11 @@ android {
                 "RANDOMUSER_API_URL",
                 "\"https://randomuser.me/\""
             )
+            buildConfigField(
+                "String",
+                "BORED_API_URL",
+                "\"https://www.boredapi.com/api/\""
+            )
         }
 
         debug {
@@ -59,6 +64,11 @@ android {
                 "String",
                 "RANDOMUSER_API_URL",
                 "\"https://randomuser.me/\""
+            )
+            buildConfigField(
+                "String",
+                "BORED_API_URL",
+                "\"https://www.boredapi.com/api/\""
             )
         }
     }

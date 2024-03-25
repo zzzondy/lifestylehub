@@ -7,6 +7,7 @@ import com.main.data.local.repository.LocalMainFeatureRepository
 import com.main.data.local.repository.LocalMainFeatureRepositoryImpl
 import com.main.data.remote.network.MainFeatureNetworkService
 import com.main.data.remote.network.NearbyPlacesNetworkService
+import com.main.data.remote.network.RandomTipNetworkService
 import com.main.data.remote.repository.RemoteMainFeatureRepository
 import com.main.data.remote.repository.RemoteMainFeatureRepositoryImpl
 import com.main.data.repository.MainFeatureRepositoryImpl
@@ -23,11 +24,13 @@ class RepositoryModule {
         locationManager: LocationManager,
         mainFeatureNetworkService: MainFeatureNetworkService,
         nearbyPlacesNetworkService: NearbyPlacesNetworkService,
+        randomTipNetworkService: RandomTipNetworkService,
     ): RemoteMainFeatureRepository =
         RemoteMainFeatureRepositoryImpl(
             locationManager,
             mainFeatureNetworkService,
-            nearbyPlacesNetworkService
+            nearbyPlacesNetworkService,
+            randomTipNetworkService
         )
 
     @MainComponentScope

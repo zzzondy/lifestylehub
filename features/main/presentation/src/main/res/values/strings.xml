@@ -30,4 +30,5 @@
     <string name="phone">Phone</string>
     <string name="no_contacts">No contacts</string>
     <string name="place_details">Place details</string>
+    <string name="tip_for_you">Tip for you</string>
 </resources>

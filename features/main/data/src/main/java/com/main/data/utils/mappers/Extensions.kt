@@ -4,13 +4,17 @@ import com.common.network.location.MapLocation
 import com.main.data.remote.models.places.PlaceResponse
 import com.main.data.remote.models.places.RemoteCategory
 import com.main.data.remote.models.results.RemoteObtainingNearbyPlacesResult
+import com.main.data.remote.models.results.RemoteObtainingRandomTipResult
 import com.main.data.remote.models.results.RemoteObtainingUserWeatherResult
+import com.main.data.remote.models.tips.RemoteRandomTip
 import com.main.data.remote.models.weather.RemoteWeatherOnUserLocation
 import com.main.domain.models.UserLocation
 import com.main.domain.models.places.Category
 import com.main.domain.models.places.PagingItem
 import com.main.domain.models.results.ObtainingNearbyPlacesResult
+import com.main.domain.models.results.ObtainingRandomTipResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
+import com.main.domain.models.tips.RandomTip
 import com.main.domain.models.weather.WeatherOnUserLocation
 
 fun RemoteObtainingUserWeatherResult.toDomain() = when (this) {
@@ -24,6 +28,16 @@ fun RemoteObtainingNearbyPlacesResult.toDomain() = when (this) {
 
     is RemoteObtainingNearbyPlacesResult.Error -> ObtainingNearbyPlacesResult.Error
 }
+
+fun RemoteObtainingRandomTipResult.toDomain() = when (this) {
+    is RemoteObtainingRandomTipResult.Success -> ObtainingRandomTipResult.Success(this.remoteRandomTip.toDomain())
+
+    is RemoteObtainingRandomTipResult.Error -> ObtainingRandomTipResult.Error
+}
+
+fun RemoteRandomTip.toDomain() = RandomTip(
+    name
+)
 
 fun RemoteWeatherOnUserLocation.toDomain() =
     WeatherOnUserLocation(

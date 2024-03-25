@@ -29,4 +29,5 @@
     <string name="phone">Телефон</string>
     <string name="no_contacts">Нет контактов</string>
     <string name="place_details">Подробности</string>
+    <string name="tip_for_you">Совет для вас</string>
 </resources>

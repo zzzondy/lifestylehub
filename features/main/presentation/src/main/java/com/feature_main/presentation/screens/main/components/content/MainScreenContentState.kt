@@ -35,6 +35,7 @@ import com.common.ui.theme.LifestyleHubTheme
 import com.feature_main.presentation.R
 import com.feature_main.presentation.screens.main.state_hoisting.MainScreenAction
 import com.feature_main.presentation.screens.main.state_hoisting.NearbySectionState
+import com.feature_main.presentation.screens.main.state_hoisting.RandomTipSectionState
 import com.feature_main.presentation.screens.main.state_hoisting.WeatherSectionState
 import com.main.domain.models.places.PagingItem
 import kotlinx.coroutines.launch
@@ -43,6 +44,7 @@ import kotlinx.coroutines.launch
 fun MainScreenContentState(
     weatherSectionState: WeatherSectionState,
     nearbySectionState: NearbySectionState,
+    randomTipSectionState: RandomTipSectionState,
     modifier: Modifier = Modifier,
     onAction: (MainScreenAction) -> Unit = {},
 ) {
@@ -95,6 +97,37 @@ fun MainScreenContentState(
                             onClick = {
                                 onAction(MainScreenAction.OnRefreshAllData)
                             }
+                        )
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(LifestyleHubTheme.paddings.medium))
+            }
+
+            item {
+                when (randomTipSectionState) {
+                    is RandomTipSectionState.Data -> {
+                        RandomTipWidget(
+                            randomTip = randomTipSectionState.tip,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = LifestyleHubTheme.paddings.medium)
+                        )
+                    }
+
+                    is RandomTipSectionState.Loading -> {
+                        LoadingRandomTipWidget(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = LifestyleHubTheme.paddings.medium)
+                        )
+                    }
+
+                    is RandomTipSectionState.Error -> {
+                        ErrorTipWidget(
+                            message = randomTipSectionState.message.asString(), modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = LifestyleHubTheme.paddings.medium)
                         )
                     }
                 }
@@ -261,10 +294,8 @@ private const val BUTTON_TO_UP_TRIGGER = 4
 
 object WeatherWidgetTestingTags {
     const val LOADING_WEATHER_WIDGET = "loading_weather"
-    const val title = "title"
     const val city = "city"
     const val temperature = "temperature"
-    const val temperatureToday = "temperature_today"
     const val temperatureRange = "temperature_range"
     const val feelingTemperature = "feeling_temperature"
     const val weatherCondition = "weather_condition"

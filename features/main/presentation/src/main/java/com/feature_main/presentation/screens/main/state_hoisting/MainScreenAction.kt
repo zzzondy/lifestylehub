@@ -10,5 +10,7 @@ sealed class MainScreenAction {
 
     data object OnRefreshAllData : MainScreenAction()
 
+    data object OnRefreshAllDataWithSwipe : MainScreenAction()
+
     data class OnPlaceClicked(val id: String) : MainScreenAction()
 }

@@ -2,6 +2,7 @@ package com.main.data.remote.repository
 
 import com.common.network.location.MapLocation
 import com.main.data.remote.models.results.RemoteObtainingNearbyPlacesResult
+import com.main.data.remote.models.results.RemoteObtainingRandomTipResult
 import com.main.data.remote.models.results.RemoteObtainingUserWeatherResult
 
 interface RemoteMainFeatureRepository {
@@ -19,4 +20,6 @@ interface RemoteMainFeatureRepository {
     ): RemoteObtainingNearbyPlacesResult
 
     fun obtainUserLocation(): MapLocation?
+
+    suspend fun getRandomTip(): RemoteObtainingRandomTipResult
 }

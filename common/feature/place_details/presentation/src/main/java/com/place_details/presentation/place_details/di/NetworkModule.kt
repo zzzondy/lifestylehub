@@ -1,9 +1,9 @@
 package com.place_details.presentation.place_details.di
 
 import com.common.network.BuildConfig
-import com.place_details.presentation.place_details.di.qualifiers.PlaceDetailsRetrofit
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.place_details.data.remote.network.PlaceDetailsNetworkService
+import com.place_details.presentation.place_details.di.qualifiers.PlaceDetailsRetrofit
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.json.Json

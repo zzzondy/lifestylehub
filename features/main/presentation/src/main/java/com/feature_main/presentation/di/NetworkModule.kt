@@ -2,10 +2,12 @@ package com.feature_main.presentation.di
 
 import com.common.network.BuildConfig
 import com.feature_main.presentation.di.qualifiers.PlacesRetrofit
+import com.feature_main.presentation.di.qualifiers.RandomTipsRetrofit
 import com.feature_main.presentation.di.qualifiers.WeatherRetrofit
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.main.data.remote.network.MainFeatureNetworkService
 import com.main.data.remote.network.NearbyPlacesNetworkService
+import com.main.data.remote.network.RandomTipNetworkService
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.json.Json
@@ -37,6 +39,20 @@ class NetworkModule {
         .client(client)
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         .build()
+
+    @RandomTipsRetrofit
+    @MainComponentScope
+    @Provides
+    fun provideRandomTipsRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
+        .baseUrl(BuildConfig.BORED_API_URL)
+        .client(client)
+        .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+        .build()
+
+    @MainComponentScope
+    @Provides
+    fun provideRandomTipsNetworkService(@RandomTipsRetrofit retrofit: Retrofit): RandomTipNetworkService =
+        retrofit.create(RandomTipNetworkService::class.java)
 
     @MainComponentScope
     @Provides

@@ -2,6 +2,7 @@ package com.main.domain.repository
 
 import com.main.domain.models.UserLocation
 import com.main.domain.models.results.ObtainingNearbyPlacesResult
+import com.main.domain.models.results.ObtainingRandomTipResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
 
 interface MainFeatureRepository {
@@ -20,4 +21,6 @@ interface MainFeatureRepository {
     ): ObtainingNearbyPlacesResult
 
     fun obtainUserLocation(): UserLocation?
+
+    suspend fun getRandomTip(): ObtainingRandomTipResult
 }

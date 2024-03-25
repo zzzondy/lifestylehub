@@ -5,6 +5,7 @@ import com.main.data.remote.repository.RemoteMainFeatureRepository
 import com.main.data.utils.mappers.toDomain
 import com.main.domain.models.UserLocation
 import com.main.domain.models.results.ObtainingNearbyPlacesResult
+import com.main.domain.models.results.ObtainingRandomTipResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
 import com.main.domain.repository.MainFeatureRepository
 
@@ -37,4 +38,7 @@ class MainFeatureRepositoryImpl(
 
     override fun obtainUserLocation(): UserLocation? =
         remoteMainFeatureRepository.obtainUserLocation()?.toDomain()
+
+    override suspend fun getRandomTip(): ObtainingRandomTipResult =
+        remoteMainFeatureRepository.getRandomTip().toDomain()
 }

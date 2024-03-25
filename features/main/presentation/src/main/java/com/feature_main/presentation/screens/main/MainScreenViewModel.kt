@@ -5,15 +5,18 @@ import com.common.ui.state_hoisting.StatefulViewModel
 import com.common.ui.utils.UIText
 import com.feature_main.presentation.R
 import com.feature_main.presentation.screens.main.state_hoisting.MainScreenAction
+import com.feature_main.presentation.screens.main.state_hoisting.MainScreenEffect
 import com.feature_main.presentation.screens.main.state_hoisting.MainScreenState
 import com.feature_main.presentation.screens.main.state_hoisting.NearbySectionState
+import com.feature_main.presentation.screens.main.state_hoisting.RandomTipSectionState
 import com.feature_main.presentation.screens.main.state_hoisting.WeatherSectionState
-import com.feature_main.presentation.screens.main.state_hoisting.MainScreenEffect
 import com.main.domain.models.UserLocation
 import com.main.domain.models.results.ObtainingNearbyPlacesResult
+import com.main.domain.models.results.ObtainingRandomTipResult
 import com.main.domain.models.results.ObtainingUserWeatherResult
 import com.main.domain.use_cases.GetLocationPermissionFlagUseCase
 import com.main.domain.use_cases.GetPagedNearbyPlacesUseCase
+import com.main.domain.use_cases.ObtainRandomTipUseCase
 import com.main.domain.use_cases.ObtainUserLocationUseCase
 import com.main.domain.use_cases.ObtainUserWeatherUseCase
 import com.main.domain.use_cases.UpdateLocationPermissionFlagUseCase
@@ -29,6 +32,7 @@ class MainScreenViewModel(
     private val getLocationPermissionFlagUseCase: GetLocationPermissionFlagUseCase,
     private val obtainUserLocationUseCase: ObtainUserLocationUseCase,
     private val getPagedNearbyPlacesUseCase: GetPagedNearbyPlacesUseCase,
+    private val obtainRandomTipUseCase: ObtainRandomTipUseCase,
 ) :
     StatefulViewModel<MainScreenState, MainScreenEffect, MainScreenAction>() {
 
@@ -41,6 +45,8 @@ class MainScreenViewModel(
             MainScreenState.Content(
                 weatherSectionState = WeatherSectionState.Loading,
                 nearbySectionState = NearbySectionState.Loading,
+                randomTipSectionState = RandomTipSectionState.Loading,
+                isRefreshing = false,
             )
         )
 
@@ -50,6 +56,8 @@ class MainScreenViewModel(
 
     private var currentWeatherSectionState: WeatherSectionState = WeatherSectionState.Loading
     private var currentNearbySectionState: NearbySectionState = NearbySectionState.Loading
+    private var currentRandomTipSectionState: RandomTipSectionState = RandomTipSectionState.Loading
+    private var isRefreshing: Boolean = false
 
     init {
         obtainAllInformation()
@@ -76,6 +84,10 @@ class MainScreenViewModel(
             is MainScreenAction.OnPlaceClicked -> {
                 onPlaceClicked(action.id)
             }
+
+            is MainScreenAction.OnRefreshAllDataWithSwipe -> {
+                refreshAllData(withSwipe = true)
+            }
         }
     }
 
@@ -85,9 +97,14 @@ class MainScreenViewModel(
         }
     }
 
-    private fun refreshAllData() {
+    private fun refreshAllData(withSwipe: Boolean = false) {
         currentWeatherSectionState = WeatherSectionState.Loading
         currentNearbySectionState = NearbySectionState.Loading
+        currentRandomTipSectionState = RandomTipSectionState.Loading
+        if (withSwipe) {
+            isRefreshing = true
+        }
+
         viewModelScope.launch(
             Dispatchers.IO
         ) {
@@ -113,15 +130,19 @@ class MainScreenViewModel(
                         MainScreenState.Content(
                             weatherSectionState = currentWeatherSectionState,
                             nearbySectionState = currentNearbySectionState,
+                            randomTipSectionState = currentRandomTipSectionState,
+                            isRefreshing = isRefreshing,
                         )
                     )
                 }
 
                 job.join()
 
+                obtainRandomTip()
                 obtainUserWeather()
                 obtainNearbyPlaces(currentNearbyPlacesPagingOffset, PAGING_LIMIT)
             } else if (userLocation != null) {
+                obtainRandomTip()
                 obtainUserWeather()
                 obtainNearbyPlaces(currentNearbyPlacesPagingOffset, PAGING_LIMIT)
             } else {
@@ -129,10 +150,36 @@ class MainScreenViewModel(
                     getLocationPermissionFlagUseCase()
                 updateState(
                     MainScreenState.LocationUnavailable(
-                        isRationaleShowLocationPermissionDialog = isRationaleToShowLocationPermissionDialog
+                        isRationaleShowLocationPermissionDialog = isRationaleToShowLocationPermissionDialog,
+                        isRefreshing = isRefreshing
                     )
                 )
             }
+        }
+    }
+
+    private fun obtainRandomTip() {
+        currentRandomTipSectionState = RandomTipSectionState.Loading
+        viewModelScope.launch(Dispatchers.IO) {
+            updateCurrentStateWithDataStates()
+
+            when (val result = obtainRandomTipUseCase()) {
+                is ObtainingRandomTipResult.Success -> {
+                    currentRandomTipSectionState = RandomTipSectionState.Data(
+                        result.randomTip
+                    )
+                    updateCurrentStateWithDataStates()
+                }
+
+                is ObtainingRandomTipResult.Error -> {
+                    currentRandomTipSectionState = RandomTipSectionState.Error(
+                        UIText.StringResource(R.string.network_error)
+                    )
+                    updateCurrentStateWithDataStates()
+                }
+            }
+            isRefreshing = false
+            updateCurrentStateWithDataStates()
         }
     }
 
@@ -162,6 +209,8 @@ class MainScreenViewModel(
                 updateCurrentStateWithDataStates()
             }
         }
+        isRefreshing = false
+        updateCurrentStateWithDataStates()
     }
 
     private fun onLoadNextPageOfNearbyPlaces() {
@@ -241,6 +290,8 @@ class MainScreenViewModel(
                 }
             }
         }
+        isRefreshing = false
+        updateCurrentStateWithDataStates()
     }
 
 
@@ -250,7 +301,8 @@ class MainScreenViewModel(
             isRationaleToShowLocationPermissionDialog = isRationaleShow
             updateState(
                 MainScreenState.LocationUnavailable(
-                    isRationaleShowLocationPermissionDialog = isRationaleToShowLocationPermissionDialog
+                    isRationaleShowLocationPermissionDialog = isRationaleToShowLocationPermissionDialog,
+                    isRefreshing = isRefreshing
                 )
             )
         }
@@ -260,7 +312,9 @@ class MainScreenViewModel(
         updateState(
             MainScreenState.Content(
                 weatherSectionState = currentWeatherSectionState,
-                nearbySectionState = currentNearbySectionState
+                nearbySectionState = currentNearbySectionState,
+                randomTipSectionState = currentRandomTipSectionState,
+                isRefreshing = isRefreshing
             )
         )
     }

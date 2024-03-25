@@ -31,6 +31,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
 import com.common.ui.theme.LifestyleHubTheme
 import com.place_details.presentation.R
 import com.place_details.presentation.plan_adding.state_hoisting.PlanAddingScreenAction
@@ -70,7 +71,8 @@ fun PlanAddingScreenContent(
             Text(
                 text = stringResource(R.string.you_planned_to_visit),
                 style = MaterialTheme.typography.headlineMedium,
-                modifier = Modifier.padding(horizontal = LifestyleHubTheme.paddings.medium)
+                modifier = Modifier.padding(horizontal = LifestyleHubTheme.paddings.medium),
+                textAlign = TextAlign.Center,
             )
 
             Spacer(modifier = Modifier.height(LifestyleHubTheme.paddings.small))
@@ -78,7 +80,7 @@ fun PlanAddingScreenContent(
             Text(
                 text = placeName,
                 style = MaterialTheme.typography.headlineSmall,
-                modifier = Modifier.padding(horizontal = LifestyleHubTheme.paddings.medium)
+                modifier = Modifier.padding(horizontal = LifestyleHubTheme.paddings.medium),
             )
 
             Spacer(modifier = Modifier.height(LifestyleHubTheme.paddings.medium))
