@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Профиль</string>
+    <string name="login">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="user_photo">Фото пользователя</string>
+    <string name="sign_up_description">Зарегистрируйстесь, чтобы получить доступ к расширенному контенту</string>
+    <string name="clear">Очистить</string>
+    <string name="lock">Замок</string>
+    <string name="very_short_password">Пароль должен содержать как минимум 8 символов</string>
+    <string name="password_should_contains_digits_and_letters">Пароль должен содержать как буквы, так и цифры</string>
+    <string name="password_should_contains_uppercase_and_lowercase">Пароль должен содержать буквы в верхнем и нижнем регистре</string>
+    <string name="some_error_occurred">Произошла непредвиденная ошибка, попробуйте позже</string>
+    <string name="network_error_occurred">Проверьте соединение с интернетом и повторите позже</string>
+    <string name="wrong_password_or_login">Неправильный логин или пароль</string>
+    <string name="login_description">Войдите, чтобы получить доступ к расширенному контенту</string>
+    <string name="password_visibility">Видимость пароля</string>
+    <string name="password">Пароль</string>
+    <string name="login_title">Логин</string>
+    <string name="arrow_back">Назад</string>
+    <string name="sign_out">Выйти</string>
+</resources>

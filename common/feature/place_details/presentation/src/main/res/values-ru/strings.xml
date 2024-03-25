@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="main">Главная</string>
+    <string name="your_location">Ваше местоположение</string>
+    <string name="temperature_range">От %1$dC° до %2$dC°</string>
+    <string name="temperature_today">Температура сегодня</string>
+    <string name="feelsLike">Ощущается как %1$dC°</string>
+    <string name="your_location_unavailable">Ваша геопозиция недоступна</string>
+    <string name="confirm">Принять</string>
+    <string name="dismiss">Отмена</string>
+    <string name="location_permission_explanation">Для продолжения, пожалуйста, разрешите доступ к геолокации</string>
+    <string name="location_permission_explanation_last">Эта функция недоступна без доступа к геолокации. Открыть настройки?</string>
+    <string name="network_error">Проверьте соединение с интернетом и попробуйте позже</string>
+    <string name="weather_icon">Погода</string>
+    <string name="place_image">Фотография места</string>
+    <string name="no_address">Адрес не указан</string>
+    <string name="categories">Категории</string>
+    <string name="try_again">Попробовать еще раз</string>
+    <string name="no_places_on_your_location">По вашей геолокации не найдено мест</string>
+    <string name="error_occured">Произошла какая-то ошибка</string>
+    <string name="you_have_reached_maximum">Вы долистали до конца</string>
+    <string name="arrow_up">Стрелка вверх</string>
+    <string name="arrow_back">Стрелка назад</string>
+    <string name="recommended_places">Хорошие места неподалеку</string>
+    <string name="contacts">Контакты</string>
+    <string name="instagram">Инстаграм</string>
+    <string name="twitter">Твиттер</string>
+    <string name="facebook">Фейсбук</string>
+    <string name="phone">Телефон</string>
+    <string name="no_contacts">Нет контактов</string>
+    <string name="place_details">Подробности</string>
+    <string name="add">Добавить</string>
+    <string name="you_planned_to_visit">Вы запланировали посетить</string>
+    <string name="name">Название</string>
+    <string name="clear">Очистить</string>
+    <string name="planner">Планнер</string>
+    <string name="adding_plan">Добавление плана</string>
+</resources>

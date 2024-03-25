@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planner">Planner</string>
+    <string name="some_error">Some error occurred</string>
+    <string name="plans_are_empty">You have not added any plans</string>
+    <string name="add">Add</string>
+    <string name="notes">Notes</string>
+    <string name="you_planned_to_visit">You planned to visit</string>
+    <string name="try_again">Try again</string>
+    <string name="name">Name</string>
+    <string name="clear">Clear</string>
+    <string name="delete">Delete</string>
+    <string name="adding_plan">Adding plan</string>
+    <string name="arrow_back">Back</string>
+</resources>

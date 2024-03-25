@@ -1,5 +1,12 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath(Dependencies.Serialization.kotlinSerialization)
+    }
+}
+
 plugins {
-    id("com.android.application") version "8.2.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.9.0" apply false
+    id(Plugins.androidApplication) version Plugins.androidApplicationVersion apply false
+    id(Plugins.androidLibrary) version Plugins.androidLibraryVersion apply false
+    id(Plugins.kotlinAndroid) version Plugins.kotlinVersion apply false
+    id(Plugins.kotlinJvm) version Plugins.kotlinVersion apply false
 }

@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/buildSrc" name="buildSrc">
+                <projects>
+                  <project path="$PROJECT_DIR$/buildSrc" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/auth" />
+            <option value="$PROJECT_DIR$/common/auth/data" />
+            <option value="$PROJECT_DIR$/common/auth/domain" />
+            <option value="$PROJECT_DIR$/common/feature" />
+            <option value="$PROJECT_DIR$/common/feature/place_details" />
+            <option value="$PROJECT_DIR$/common/feature/place_details/data" />
+            <option value="$PROJECT_DIR$/common/feature/place_details/domain" />
+            <option value="$PROJECT_DIR$/common/feature/place_details/presentation" />
+            <option value="$PROJECT_DIR$/common/navigation" />
+            <option value="$PROJECT_DIR$/common/network" />
+            <option value="$PROJECT_DIR$/common/planner_feature_data" />
+            <option value="$PROJECT_DIR$/common/ui" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/auth" />
+            <option value="$PROJECT_DIR$/features/auth/presentation" />
+            <option value="$PROJECT_DIR$/features/main" />
+            <option value="$PROJECT_DIR$/features/main/data" />
+            <option value="$PROJECT_DIR$/features/main/domain" />
+            <option value="$PROJECT_DIR$/features/main/presentation" />
+            <option value="$PROJECT_DIR$/features/planner" />
+            <option value="$PROJECT_DIR$/features/planner/data" />
+            <option value="$PROJECT_DIR$/features/planner/domain" />
+            <option value="$PROJECT_DIR$/features/planner/presentation" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

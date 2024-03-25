@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="planner">Мой досуг</string>
+    <string name="some_error">Произошла непредвиденная ошибка, попробуйте позже</string>
+    <string name="plans_are_empty">Вы не добавили еще ни одного плана</string>
+    <string name="add">Добавить</string>
+    <string name="notes">Заметки</string>
+    <string name="you_planned_to_visit">Вы запланировали посетить</string>
+    <string name="try_again">Попробовать еще раз</string>
+    <string name="name">Название</string>
+    <string name="clear">Очистить</string>
+    <string name="delete">Удалить</string>
+    <string name="adding_plan">Добавление плана</string>
+    <string name="arrow_back">Назад</string>
+</resources>

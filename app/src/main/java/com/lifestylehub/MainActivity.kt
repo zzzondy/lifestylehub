@@ -3,44 +3,28 @@ package com.lifestylehub
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.lifestylehub.ui.theme.LifestyleHubTheme
+import androidx.core.view.WindowCompat
+import com.common.ui.theme.LifestyleHubTheme
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         super.onCreate(savedInstanceState)
+
+        val navigationComponent = appComponent.navigationComponentFactory.create()
+
         setContent {
             LifestyleHubTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+                AppContent(
+                    // Bottom bar items и navigation apis отсортированы по одному и тому же правилу, чтобы
+                    // каждомй вкладке на панеле навигации соответствовала своя навигация в фиче
+                    bottomBarItems = navigationComponent.bottomBarItems.toList()
+                        .sortedBy { it.navigationRoute },
+                    featureNavigationApis = navigationComponent.featureNavigationApis.toList()
+                        .sortedBy { it.navigationRoute }
+                )
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LifestyleHubTheme {
-        Greeting("Android")
     }
 }

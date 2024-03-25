@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">LifestyleHub</string>
+    <string name="main">Main</string>
+    <string name="home">Home</string>
+    <string name="your_location">Your location</string>
 </resources>

@@ -1,0 +1,20 @@
+plugins {
+    id(Plugins.javaLibrary)
+    id(Plugins.kotlinJvm)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+
+    // Coroutines
+    implementation(Dependencies.Coroutines.coroutines)
+
+    // Testing
+    testImplementation(Dependencies.Testing.junit)
+    testImplementation(Dependencies.Testing.mockk)
+    testImplementation(Dependencies.Testing.coroutines)
+}
