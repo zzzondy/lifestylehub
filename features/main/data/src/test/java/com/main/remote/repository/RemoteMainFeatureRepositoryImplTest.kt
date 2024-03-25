@@ -6,11 +6,12 @@ import com.main.data.remote.models.weather.MainWeatherData
 import com.main.data.remote.models.weather.RemoteWeatherOnUserLocation
 import com.main.data.remote.network.MainFeatureNetworkService
 import com.main.data.remote.network.NearbyPlacesNetworkService
+import com.main.data.remote.network.RandomTipNetworkService
 import com.main.data.remote.repository.RemoteMainFeatureRepositoryImpl
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
-import okhttp3.ResponseBody
+import okhttp3.ResponseBody.Companion.toResponseBody
 import org.junit.Assert
 import org.junit.Test
 import retrofit2.Response
@@ -22,11 +23,13 @@ class RemoteMainFeatureRepositoryImplTest {
         val dummyMainFeatureNetworkService = mockk<MainFeatureNetworkService>()
         val dummyLocationManager = mockk<LocationManager>()
         val dummyNearbyPlacesNetworkService = mockk<NearbyPlacesNetworkService>()
+        val dummyRandomTipNetworkService = mockk<RandomTipNetworkService>()
         val dummyRemoteMainFeatureRepository =
             RemoteMainFeatureRepositoryImpl(
                 dummyLocationManager,
                 dummyMainFeatureNetworkService,
-                dummyNearbyPlacesNetworkService
+                dummyNearbyPlacesNetworkService,
+                dummyRandomTipNetworkService
             )
 
         coEvery {
@@ -47,11 +50,13 @@ class RemoteMainFeatureRepositoryImplTest {
         val dummyMainFeatureNetworkService = mockk<MainFeatureNetworkService>()
         val dummyLocationManager = mockk<LocationManager>()
         val dummyNearbyPlacesNetworkService = mockk<NearbyPlacesNetworkService>()
+        val dummyRandomTipNetworkService = mockk<RandomTipNetworkService>()
         val dummyRemoteMainFeatureRepository =
             RemoteMainFeatureRepositoryImpl(
                 dummyLocationManager,
                 dummyMainFeatureNetworkService,
-                dummyNearbyPlacesNetworkService
+                dummyNearbyPlacesNetworkService,
+                dummyRandomTipNetworkService
             )
 
         coEvery {
@@ -59,7 +64,7 @@ class RemoteMainFeatureRepositoryImplTest {
                 1.0,
                 1.0,
             )
-        } returns Response.error(400, ResponseBody.create(null, ""))
+        } returns Response.error(400, "".toResponseBody(null))
 
         Assert.assertEquals(
             dummyRemoteMainFeatureRepository.getUserWeather(1.0, 1.0),
@@ -72,11 +77,13 @@ class RemoteMainFeatureRepositoryImplTest {
         val dummyMainFeatureNetworkService = mockk<MainFeatureNetworkService>()
         val dummyLocationManager = mockk<LocationManager>()
         val dummyNearbyPlacesNetworkService = mockk<NearbyPlacesNetworkService>()
+        val dummyRandomTipNetworkService = mockk<RandomTipNetworkService>()
         val dummyRemoteMainFeatureRepository =
             RemoteMainFeatureRepositoryImpl(
                 dummyLocationManager,
                 dummyMainFeatureNetworkService,
-                dummyNearbyPlacesNetworkService
+                dummyNearbyPlacesNetworkService,
+                dummyRandomTipNetworkService,
             )
         val iconDescription = "desc"
         val icon = "icon"

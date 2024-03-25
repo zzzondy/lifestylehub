@@ -9,6 +9,7 @@ import com.common.ui.theme.LifestyleHubTheme
 import com.feature_main.presentation.screens.main.components.content.MainScreenContentState
 import com.feature_main.presentation.screens.main.components.content.WeatherWidgetTestingTags
 import com.feature_main.presentation.screens.main.state_hoisting.NearbySectionState
+import com.feature_main.presentation.screens.main.state_hoisting.RandomTipSectionState
 import com.feature_main.presentation.screens.main.state_hoisting.WeatherSectionState
 import com.main.domain.models.weather.WeatherOnUserLocation
 import org.junit.Rule
@@ -23,12 +24,14 @@ class MainScreenContentStateTest {
     fun shouldDisplayLoadingWeatherWidget() {
         val weatherSectionState = WeatherSectionState.Loading
         val nearbySectionState = NearbySectionState.Loading
+        val randomTipSectionState = RandomTipSectionState.Loading
 
         composeTestRule.setContent {
             LifestyleHubTheme {
                 MainScreenContentState(
                     weatherSectionState = weatherSectionState,
-                    nearbySectionState = nearbySectionState
+                    nearbySectionState = nearbySectionState,
+                    randomTipSectionState = randomTipSectionState,
                 )
             }
         }
@@ -63,7 +66,8 @@ class MainScreenContentStateTest {
             LifestyleHubTheme {
                 MainScreenContentState(
                     weatherSectionState = weatherSectionState,
-                    nearbySectionState = NearbySectionState.Loading
+                    nearbySectionState = NearbySectionState.Loading,
+                    randomTipSectionState = RandomTipSectionState.Loading
                 )
             }
         }
