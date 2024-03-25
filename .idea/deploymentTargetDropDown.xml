@@ -2,19 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="LoadingWeatherWidgetPreview">
-        <State />
-      </entry>
-      <entry key="PlaceDetailsScreenLoadingStatePreview">
-        <State />
-      </entry>
-      <entry key="WeatherWidgetPreview">
-        <State />
-      </entry>
-      <entry key="WeatherWidgetPreview (1)">
+      <entry key="MainScreenContentStateTest">
         <State />
       </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="shouldDisplayContentWeatherWidget()">
         <State />
       </entry>
     </value>

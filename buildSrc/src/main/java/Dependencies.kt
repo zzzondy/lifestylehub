@@ -28,6 +28,8 @@ object Dependencies {
         const val composeJunit = "androidx.compose.ui:ui-test-junit4"
         const val composeUiTolling = "androidx.compose.ui:ui-tooling"
         const val composeTestManifest = "androidx.compose.ui:ui-test-manifest"
+        const val mockk = "io.mockk:mockk:1.13.10"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
     }
 
     object Serialization {

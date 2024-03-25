@@ -54,7 +54,7 @@ fun AddingPlanScreenContentState(
         { _, newYear, newMonth, newDay ->
             onAction(AddingPlanScreenAction.OnDateUpdated(newYear, newMonth, newDay))
         },
-        year, month, day,
+        year, month - 1, day,
     )
 
     val focusManager = LocalFocusManager.current

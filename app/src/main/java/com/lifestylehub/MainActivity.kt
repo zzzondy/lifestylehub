@@ -1,7 +1,6 @@
 package com.lifestylehub
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
@@ -18,10 +17,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             LifestyleHubTheme {
                 AppContent(
+                    // Bottom bar items и navigation apis отсортированы по одному и тому же правилу, чтобы
+                    // каждомй вкладке на панеле навигации соответствовала своя навигация в фиче
                     bottomBarItems = navigationComponent.bottomBarItems.toList()
-                        .sortedBy { it.nameId },
+                        .sortedBy { it.navigationRoute },
                     featureNavigationApis = navigationComponent.featureNavigationApis.toList()
-                        .sortedByDescending { it.navigationRoute }
+                        .sortedBy { it.navigationRoute }
                 )
             }
         }

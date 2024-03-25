@@ -33,7 +33,7 @@ class PlanAddingScreenViewModel(
                 name = "",
                 placeName = placeName,
                 year = calendar[Calendar.YEAR],
-                month = calendar[Calendar.MONTH],
+                month = calendar[Calendar.MONTH] + 1,
                 day = calendar[Calendar.DAY_OF_MONTH]
             )
         )
@@ -83,7 +83,7 @@ class PlanAddingScreenViewModel(
             updateState(
                 state.value.copy(
                     year = year,
-                    month = month,
+                    month = month + 1,
                     day = day
                 )
             )

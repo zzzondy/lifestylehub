@@ -25,7 +25,7 @@ fun RemoteObtainingNearbyPlacesResult.toDomain() = when (this) {
     is RemoteObtainingNearbyPlacesResult.Error -> ObtainingNearbyPlacesResult.Error
 }
 
-private fun RemoteWeatherOnUserLocation.toDomain() =
+fun RemoteWeatherOnUserLocation.toDomain() =
     WeatherOnUserLocation(
         temperature = this.mainWeatherData.temperature,
         icon = this.iconDetails[0].icon,
@@ -47,7 +47,7 @@ fun PlaceResponse.toDomain(): PagingItem.Place =
         categories = this.venue.categories.map { it.toDomain() },
     )
 
-private fun RemoteCategory.toDomain(): Category = Category(
+fun RemoteCategory.toDomain(): Category = Category(
     id = this.id,
     name = this.name,
     icon = iconDetails.prefix + "120" + iconDetails.suffix,

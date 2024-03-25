@@ -92,4 +92,9 @@ dependencies {
     // Dagger
     implementation(Dependencies.Dagger.dagger)
     kapt(Dependencies.Dagger.compiler)
+
+    // Testing
+    androidTestImplementation(platform(Dependencies.Compose.bom))
+    androidTestImplementation(Dependencies.Testing.composeJunit)
+    debugImplementation(Dependencies.Testing.composeTestManifest)
 }

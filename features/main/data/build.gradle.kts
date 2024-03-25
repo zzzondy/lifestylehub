@@ -103,4 +103,9 @@ dependencies {
     implementation(Dependencies.Room.runtime)
     kapt(Dependencies.Room.compiler)
     implementation(Dependencies.Room.ktx)
+
+    // Testing
+    testImplementation(Dependencies.Testing.junit)
+    testImplementation(Dependencies.Testing.mockk)
+    testImplementation(Dependencies.Testing.coroutines)
 }

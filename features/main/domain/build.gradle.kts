@@ -12,4 +12,9 @@ dependencies {
 
     // Coroutines
     implementation(Dependencies.Coroutines.coroutines)
+
+    // Testing
+    testImplementation(Dependencies.Testing.junit)
+    testImplementation(Dependencies.Testing.mockk)
+    testImplementation(Dependencies.Testing.coroutines)
 }

@@ -27,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.common.ui.extensions.animateScrollToUp
@@ -80,6 +81,7 @@ fun MainScreenContentState(
                                 .height(LifestyleHubTheme.sizes.weatherCardHeight)
                                 .fillMaxWidth()
                                 .padding(LifestyleHubTheme.paddings.medium)
+                                .testTag(WeatherWidgetTestingTags.LOADING_WEATHER_WIDGET)
                         )
                     }
 
@@ -256,3 +258,15 @@ fun MainScreenContentState(
 private const val NEARBY_PLACES_PLACEHOLDERS_COUNT = 4
 private const val PAGING_THRESHOLD = 5
 private const val BUTTON_TO_UP_TRIGGER = 4
+
+object WeatherWidgetTestingTags {
+    const val LOADING_WEATHER_WIDGET = "loading_weather"
+    const val title = "title"
+    const val city = "city"
+    const val temperature = "temperature"
+    const val temperatureToday = "temperature_today"
+    const val temperatureRange = "temperature_range"
+    const val feelingTemperature = "feeling_temperature"
+    const val weatherCondition = "weather_condition"
+    const val icon = "icon"
+}

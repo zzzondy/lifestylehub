@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -107,7 +108,9 @@ fun WeatherWidget(
             Text(
                 text = stringResource(R.string.celsius, temperature),
                 style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.temperature)
+                modifier = Modifier
+                    .layoutId(WeatherWidgetLayoutIDs.temperature)
+                    .testTag(WeatherWidgetTestingTags.temperature)
             )
 
             Text(
@@ -119,7 +122,9 @@ fun WeatherWidget(
             Text(
                 text = city,
                 style = MaterialTheme.typography.titleSmall,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.city),
+                modifier = Modifier
+                    .layoutId(WeatherWidgetLayoutIDs.city)
+                    .testTag(WeatherWidgetTestingTags.city),
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
@@ -133,19 +138,25 @@ fun WeatherWidget(
             Text(
                 text = stringResource(R.string.temperature_range, minTemperature, maxTemperature),
                 style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.temperatureRange)
+                modifier = Modifier
+                    .layoutId(WeatherWidgetLayoutIDs.temperatureRange)
+                    .testTag(WeatherWidgetTestingTags.temperatureRange)
             )
 
             Text(
                 text = weatherCondition,
                 style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.weatherCondition)
+                modifier = Modifier
+                    .layoutId(WeatherWidgetLayoutIDs.weatherCondition)
+                    .testTag(WeatherWidgetTestingTags.weatherCondition)
             )
 
             Text(
                 text = stringResource(R.string.feelsLike, feelingTemperature),
                 style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.layoutId(WeatherWidgetLayoutIDs.feelingTemperature)
+                modifier = Modifier
+                    .layoutId(WeatherWidgetLayoutIDs.feelingTemperature)
+                    .testTag(WeatherWidgetTestingTags.feelingTemperature)
             )
 
             AsyncImage(
@@ -154,6 +165,7 @@ fun WeatherWidget(
                 modifier = Modifier
                     .layoutId(WeatherWidgetLayoutIDs.icon)
                     .size(LifestyleHubTheme.sizes.weatherIconSize)
+                    .testTag(WeatherWidgetTestingTags.icon)
             )
         }
     }

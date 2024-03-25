@@ -29,7 +29,7 @@ class AddingPlanScreenViewModel(
                 "",
                 "",
                 calendar[Calendar.YEAR],
-                calendar[Calendar.MONTH],
+                calendar[Calendar.MONTH] + 1,
                 calendar[Calendar.DAY_OF_MONTH]
             )
         )
@@ -111,7 +111,7 @@ class AddingPlanScreenViewModel(
                     name = (state.value as AddingPlanScreenState.Content).name,
                     notes = (state.value as AddingPlanScreenState.Content).notes,
                     year = year,
-                    month = month,
+                    month = month + 1,
                     day = day,
                     isNameError = (state.value as AddingPlanScreenState.Content).isNameError,
                     isNotesError = (state.value as AddingPlanScreenState.Content).isNotesError,

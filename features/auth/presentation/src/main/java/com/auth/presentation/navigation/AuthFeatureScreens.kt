@@ -9,7 +9,7 @@ sealed class AuthFeatureScreens(val route: String) {
     data object LoginScreen : AuthFeatureScreens(route = "login_screen")
 
     companion object {
-        const val navigationRoute = "auth_feature_navigation"
+        const val navigationRoute = "profile_feature_navigation"
         val startScreenRoute = ProfileScreen.route
     }
 }

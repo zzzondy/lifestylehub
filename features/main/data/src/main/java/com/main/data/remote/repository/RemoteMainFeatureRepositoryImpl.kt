@@ -25,9 +25,6 @@ class RemoteMainFeatureRepositoryImpl(
             val result = mainFeatureNetworkService.obtainUserWeatherByLocation(
                 latitude,
                 longitude,
-                BuildConfig.OPEN_WEATHER_API_KEY,
-                "ru",
-                "metric"
             )
 
             if (result.isSuccessful && result.body() != null) {
